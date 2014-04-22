@@ -1,0 +1,628 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		41D4090E1902BD1000DE9A98 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D4090D1902BD1000DE9A98 /* Foundation.framework */; };
+		41D409101902BD1000DE9A98 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D4090F1902BD1000DE9A98 /* CoreGraphics.framework */; };
+		41D409121902BD1000DE9A98 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D409111902BD1000DE9A98 /* UIKit.framework */; };
+		41D409181902BD1000DE9A98 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41D409161902BD1000DE9A98 /* InfoPlist.strings */; };
+		41D4091A1902BD1000DE9A98 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D409191902BD1000DE9A98 /* main.m */; };
+		41D4091E1902BD1000DE9A98 /* DuoKanAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D4091D1902BD1000DE9A98 /* DuoKanAppDelegate.m */; };
+		41D409211902BD1000DE9A98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41D4091F1902BD1000DE9A98 /* Main.storyboard */; };
+		41D409241902BD1000DE9A98 /* DuoKanFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D409231902BD1000DE9A98 /* DuoKanFirstViewController.m */; };
+		41D409271902BD1000DE9A98 /* DuoKanSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D409261902BD1000DE9A98 /* DuoKanSecondViewController.m */; };
+		41D409291902BD1000DE9A98 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41D409281902BD1000DE9A98 /* Images.xcassets */; };
+		41D409301902BD1000DE9A98 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D4092F1902BD1000DE9A98 /* XCTest.framework */; };
+		41D409311902BD1000DE9A98 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D4090D1902BD1000DE9A98 /* Foundation.framework */; };
+		41D409321902BD1000DE9A98 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D409111902BD1000DE9A98 /* UIKit.framework */; };
+		41D4093A1902BD1000DE9A98 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41D409381902BD1000DE9A98 /* InfoPlist.strings */; };
+		41D4093C1902BD1000DE9A98 /* DuokanLimitFreeMobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D4093B1902BD1000DE9A98 /* DuokanLimitFreeMobileTests.m */; };
+		41D4094D1902BE1200DE9A98 /* DuoKanApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D409461902BE1200DE9A98 /* DuoKanApi.m */; };
+		41D4094E1902BE1200DE9A98 /* DuoKanBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D409481902BE1200DE9A98 /* DuoKanBook.m */; };
+		41D4094F1902BE1200DE9A98 /* DuoKanSessionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D4094A1902BE1200DE9A98 /* DuoKanSessionInfo.m */; };
+		41D409501902BE1200DE9A98 /* DuoKanVariables.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D4094C1902BE1200DE9A98 /* DuoKanVariables.m */; };
+		41D409531902BE5400DE9A98 /* DuoKanApiTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D409511902BE5400DE9A98 /* DuoKanApiTest.m */; };
+		41D409541902BE5400DE9A98 /* DuoKanSessionInfoTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D409521902BE5400DE9A98 /* DuoKanSessionInfoTest.m */; };
+		41D409571902C07600DE9A98 /* DuoKanScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D409561902C07600DE9A98 /* DuoKanScheduler.m */; };
+		41D4095A1902C08500DE9A98 /* DuoKanMobileNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D409591902C08500DE9A98 /* DuoKanMobileNotification.m */; };
+		41D4095C1902C09700DE9A98 /* DuoKanTestMobileNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D4095B1902C09700DE9A98 /* DuoKanTestMobileNotification.m */; };
+		41D4095F1902C0C400DE9A98 /* DuoKanDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D4095E1902C0C400DE9A98 /* DuoKanDelegate.m */; };
+		41D409621902C7FA00DE9A98 /* DuoKanLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D409611902C7FA00DE9A98 /* DuoKanLoginViewController.m */; };
+		41D409651903B23900DE9A98 /* DuoKanLocalStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D409641903B23900DE9A98 /* DuoKanLocalStorage.m */; };
+		41D4096C190403C600DE9A98 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D4096B190403C600DE9A98 /* KeychainItemWrapper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		41D4096F190412AF00DE9A98 /* DuoKanDebugViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D4096E190412AF00DE9A98 /* DuoKanDebugViewController.m */; };
+		41D409721904180600DE9A98 /* DuoKanHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D409711904180600DE9A98 /* DuoKanHistoryViewController.m */; };
+		41D409751905620B00DE9A98 /* DuoKanDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D409741905620B00DE9A98 /* DuoKanDebug.m */; };
+		BACCC78DA7064895B1A28D41 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6507A2A49D243F89C8284B3 /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		41D409331902BD1000DE9A98 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 41D409021902BD1000DE9A98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 41D409091902BD1000DE9A98;
+			remoteInfo = DuokanLimitFreeMobile;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		41D4090A1902BD1000DE9A98 /* DuokanLimitFreeMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DuokanLimitFreeMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		41D4090D1902BD1000DE9A98 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		41D4090F1902BD1000DE9A98 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		41D409111902BD1000DE9A98 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		41D409151902BD1000DE9A98 /* DuokanLimitFreeMobile-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DuokanLimitFreeMobile-Info.plist"; sourceTree = "<group>"; };
+		41D409171902BD1000DE9A98 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		41D409191902BD1000DE9A98 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		41D4091B1902BD1000DE9A98 /* DuokanLimitFreeMobile-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DuokanLimitFreeMobile-Prefix.pch"; sourceTree = "<group>"; };
+		41D4091C1902BD1000DE9A98 /* DuoKanAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DuoKanAppDelegate.h; sourceTree = "<group>"; };
+		41D4091D1902BD1000DE9A98 /* DuoKanAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DuoKanAppDelegate.m; sourceTree = "<group>"; };
+		41D409201902BD1000DE9A98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		41D409221902BD1000DE9A98 /* DuoKanFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DuoKanFirstViewController.h; sourceTree = "<group>"; };
+		41D409231902BD1000DE9A98 /* DuoKanFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DuoKanFirstViewController.m; sourceTree = "<group>"; };
+		41D409251902BD1000DE9A98 /* DuoKanSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DuoKanSecondViewController.h; sourceTree = "<group>"; };
+		41D409261902BD1000DE9A98 /* DuoKanSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DuoKanSecondViewController.m; sourceTree = "<group>"; };
+		41D409281902BD1000DE9A98 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		41D4092E1902BD1000DE9A98 /* DuokanLimitFreeMobileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DuokanLimitFreeMobileTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		41D4092F1902BD1000DE9A98 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		41D409371902BD1000DE9A98 /* DuokanLimitFreeMobileTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DuokanLimitFreeMobileTests-Info.plist"; sourceTree = "<group>"; };
+		41D409391902BD1000DE9A98 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		41D4093B1902BD1000DE9A98 /* DuokanLimitFreeMobileTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DuokanLimitFreeMobileTests.m; sourceTree = "<group>"; };
+		41D409451902BE1200DE9A98 /* DuoKanApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuoKanApi.h; sourceTree = "<group>"; };
+		41D409461902BE1200DE9A98 /* DuoKanApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuoKanApi.m; sourceTree = "<group>"; };
+		41D409471902BE1200DE9A98 /* DuoKanBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuoKanBook.h; sourceTree = "<group>"; };
+		41D409481902BE1200DE9A98 /* DuoKanBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuoKanBook.m; sourceTree = "<group>"; };
+		41D409491902BE1200DE9A98 /* DuoKanSessionInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuoKanSessionInfo.h; sourceTree = "<group>"; };
+		41D4094A1902BE1200DE9A98 /* DuoKanSessionInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuoKanSessionInfo.m; sourceTree = "<group>"; };
+		41D4094B1902BE1200DE9A98 /* DuokanVariables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuokanVariables.h; sourceTree = "<group>"; };
+		41D4094C1902BE1200DE9A98 /* DuoKanVariables.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuoKanVariables.m; sourceTree = "<group>"; };
+		41D409511902BE5400DE9A98 /* DuoKanApiTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuoKanApiTest.m; sourceTree = "<group>"; };
+		41D409521902BE5400DE9A98 /* DuoKanSessionInfoTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuoKanSessionInfoTest.m; sourceTree = "<group>"; };
+		41D409551902C07600DE9A98 /* DuoKanScheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuoKanScheduler.h; sourceTree = "<group>"; };
+		41D409561902C07600DE9A98 /* DuoKanScheduler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuoKanScheduler.m; sourceTree = "<group>"; };
+		41D409581902C08500DE9A98 /* DuoKanMobileNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuoKanMobileNotification.h; sourceTree = "<group>"; };
+		41D409591902C08500DE9A98 /* DuoKanMobileNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuoKanMobileNotification.m; sourceTree = "<group>"; };
+		41D4095B1902C09700DE9A98 /* DuoKanTestMobileNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuoKanTestMobileNotification.m; sourceTree = "<group>"; };
+		41D4095D1902C0C400DE9A98 /* DuoKanDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuoKanDelegate.h; sourceTree = "<group>"; };
+		41D4095E1902C0C400DE9A98 /* DuoKanDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuoKanDelegate.m; sourceTree = "<group>"; };
+		41D409601902C7FA00DE9A98 /* DuoKanLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuoKanLoginViewController.h; sourceTree = "<group>"; };
+		41D409611902C7FA00DE9A98 /* DuoKanLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuoKanLoginViewController.m; sourceTree = "<group>"; };
+		41D409631903B23900DE9A98 /* DuoKanLocalStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuoKanLocalStorage.h; sourceTree = "<group>"; };
+		41D409641903B23900DE9A98 /* DuoKanLocalStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuoKanLocalStorage.m; sourceTree = "<group>"; };
+		41D4096A190403C600DE9A98 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
+		41D4096B190403C600DE9A98 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
+		41D4096D190412AF00DE9A98 /* DuoKanDebugViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuoKanDebugViewController.h; sourceTree = "<group>"; };
+		41D4096E190412AF00DE9A98 /* DuoKanDebugViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuoKanDebugViewController.m; sourceTree = "<group>"; };
+		41D409701904180600DE9A98 /* DuoKanHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DuoKanHistoryViewController.h; path = ../DuoKanHistoryViewController.h; sourceTree = "<group>"; };
+		41D409711904180600DE9A98 /* DuoKanHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DuoKanHistoryViewController.m; path = ../DuoKanHistoryViewController.m; sourceTree = "<group>"; };
+		41D409731905620B00DE9A98 /* DuoKanDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuoKanDebug.h; sourceTree = "<group>"; };
+		41D409741905620B00DE9A98 /* DuoKanDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuoKanDebug.m; sourceTree = "<group>"; };
+		911278B13E5847AB88E5FA6E /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		E6507A2A49D243F89C8284B3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		41D409071902BD1000DE9A98 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41D409101902BD1000DE9A98 /* CoreGraphics.framework in Frameworks */,
+				41D409121902BD1000DE9A98 /* UIKit.framework in Frameworks */,
+				41D4090E1902BD1000DE9A98 /* Foundation.framework in Frameworks */,
+				BACCC78DA7064895B1A28D41 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41D4092B1902BD1000DE9A98 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41D409301902BD1000DE9A98 /* XCTest.framework in Frameworks */,
+				41D409321902BD1000DE9A98 /* UIKit.framework in Frameworks */,
+				41D409311902BD1000DE9A98 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		41D409011902BD1000DE9A98 = {
+			isa = PBXGroup;
+			children = (
+				41D409131902BD1000DE9A98 /* DuokanLimitFreeMobile */,
+				41D409351902BD1000DE9A98 /* DuokanLimitFreeMobileTests */,
+				41D4090C1902BD1000DE9A98 /* Frameworks */,
+				41D4090B1902BD1000DE9A98 /* Products */,
+				911278B13E5847AB88E5FA6E /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		41D4090B1902BD1000DE9A98 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				41D4090A1902BD1000DE9A98 /* DuokanLimitFreeMobile.app */,
+				41D4092E1902BD1000DE9A98 /* DuokanLimitFreeMobileTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		41D4090C1902BD1000DE9A98 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				41D4090D1902BD1000DE9A98 /* Foundation.framework */,
+				41D4090F1902BD1000DE9A98 /* CoreGraphics.framework */,
+				41D409111902BD1000DE9A98 /* UIKit.framework */,
+				41D4092F1902BD1000DE9A98 /* XCTest.framework */,
+				E6507A2A49D243F89C8284B3 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		41D409131902BD1000DE9A98 /* DuokanLimitFreeMobile */ = {
+			isa = PBXGroup;
+			children = (
+				41D409661903B40C00DE9A98 /* 3rdparty */,
+				41D409451902BE1200DE9A98 /* DuoKanApi.h */,
+				41D409461902BE1200DE9A98 /* DuoKanApi.m */,
+				41D4091C1902BD1000DE9A98 /* DuoKanAppDelegate.h */,
+				41D4091D1902BD1000DE9A98 /* DuoKanAppDelegate.m */,
+				41D409471902BE1200DE9A98 /* DuoKanBook.h */,
+				41D409481902BE1200DE9A98 /* DuoKanBook.m */,
+				41D4096D190412AF00DE9A98 /* DuoKanDebugViewController.h */,
+				41D4096E190412AF00DE9A98 /* DuoKanDebugViewController.m */,
+				41D4095D1902C0C400DE9A98 /* DuoKanDelegate.h */,
+				41D4095E1902C0C400DE9A98 /* DuoKanDelegate.m */,
+				41D409221902BD1000DE9A98 /* DuoKanFirstViewController.h */,
+				41D409231902BD1000DE9A98 /* DuoKanFirstViewController.m */,
+				41D409701904180600DE9A98 /* DuoKanHistoryViewController.h */,
+				41D409711904180600DE9A98 /* DuoKanHistoryViewController.m */,
+				41D409631903B23900DE9A98 /* DuoKanLocalStorage.h */,
+				41D409641903B23900DE9A98 /* DuoKanLocalStorage.m */,
+				41D409601902C7FA00DE9A98 /* DuoKanLoginViewController.h */,
+				41D409611902C7FA00DE9A98 /* DuoKanLoginViewController.m */,
+				41D409581902C08500DE9A98 /* DuoKanMobileNotification.h */,
+				41D409591902C08500DE9A98 /* DuoKanMobileNotification.m */,
+				41D409551902C07600DE9A98 /* DuoKanScheduler.h */,
+				41D409561902C07600DE9A98 /* DuoKanScheduler.m */,
+				41D409251902BD1000DE9A98 /* DuoKanSecondViewController.h */,
+				41D409261902BD1000DE9A98 /* DuoKanSecondViewController.m */,
+				41D409491902BE1200DE9A98 /* DuoKanSessionInfo.h */,
+				41D4094A1902BE1200DE9A98 /* DuoKanSessionInfo.m */,
+				41D4094B1902BE1200DE9A98 /* DuokanVariables.h */,
+				41D4094C1902BE1200DE9A98 /* DuoKanVariables.m */,
+				41D409281902BD1000DE9A98 /* Images.xcassets */,
+				41D4091F1902BD1000DE9A98 /* Main.storyboard */,
+				41D409141902BD1000DE9A98 /* Supporting Files */,
+				41D409731905620B00DE9A98 /* DuoKanDebug.h */,
+				41D409741905620B00DE9A98 /* DuoKanDebug.m */,
+			);
+			path = DuokanLimitFreeMobile;
+			sourceTree = "<group>";
+		};
+		41D409141902BD1000DE9A98 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				41D409151902BD1000DE9A98 /* DuokanLimitFreeMobile-Info.plist */,
+				41D409161902BD1000DE9A98 /* InfoPlist.strings */,
+				41D409191902BD1000DE9A98 /* main.m */,
+				41D4091B1902BD1000DE9A98 /* DuokanLimitFreeMobile-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		41D409351902BD1000DE9A98 /* DuokanLimitFreeMobileTests */ = {
+			isa = PBXGroup;
+			children = (
+				41D409511902BE5400DE9A98 /* DuoKanApiTest.m */,
+				41D409521902BE5400DE9A98 /* DuoKanSessionInfoTest.m */,
+				41D4093B1902BD1000DE9A98 /* DuokanLimitFreeMobileTests.m */,
+				41D4095B1902C09700DE9A98 /* DuoKanTestMobileNotification.m */,
+				41D409361902BD1000DE9A98 /* Supporting Files */,
+			);
+			path = DuokanLimitFreeMobileTests;
+			sourceTree = "<group>";
+		};
+		41D409361902BD1000DE9A98 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				41D409371902BD1000DE9A98 /* DuokanLimitFreeMobileTests-Info.plist */,
+				41D409381902BD1000DE9A98 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		41D409661903B40C00DE9A98 /* 3rdparty */ = {
+			isa = PBXGroup;
+			children = (
+				41D4096A190403C600DE9A98 /* KeychainItemWrapper.h */,
+				41D4096B190403C600DE9A98 /* KeychainItemWrapper.m */,
+			);
+			name = 3rdparty;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		41D409091902BD1000DE9A98 /* DuokanLimitFreeMobile */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 41D4093F1902BD1000DE9A98 /* Build configuration list for PBXNativeTarget "DuokanLimitFreeMobile" */;
+			buildPhases = (
+				167FC933225C4C4E9AA71277 /* Check Pods Manifest.lock */,
+				41D409061902BD1000DE9A98 /* Sources */,
+				41D409071902BD1000DE9A98 /* Frameworks */,
+				41D409081902BD1000DE9A98 /* Resources */,
+				C6DCEE4700804C27A27159B2 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DuokanLimitFreeMobile;
+			productName = DuokanLimitFreeMobile;
+			productReference = 41D4090A1902BD1000DE9A98 /* DuokanLimitFreeMobile.app */;
+			productType = "com.apple.product-type.application";
+		};
+		41D4092D1902BD1000DE9A98 /* DuokanLimitFreeMobileTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 41D409421902BD1000DE9A98 /* Build configuration list for PBXNativeTarget "DuokanLimitFreeMobileTests" */;
+			buildPhases = (
+				41D4092A1902BD1000DE9A98 /* Sources */,
+				41D4092B1902BD1000DE9A98 /* Frameworks */,
+				41D4092C1902BD1000DE9A98 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				41D409341902BD1000DE9A98 /* PBXTargetDependency */,
+			);
+			name = DuokanLimitFreeMobileTests;
+			productName = DuokanLimitFreeMobileTests;
+			productReference = 41D4092E1902BD1000DE9A98 /* DuokanLimitFreeMobileTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		41D409021902BD1000DE9A98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = DuoKan;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Melvin Tu";
+				TargetAttributes = {
+					41D409091902BD1000DE9A98 = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+					41D4092D1902BD1000DE9A98 = {
+						TestTargetID = 41D409091902BD1000DE9A98;
+					};
+				};
+			};
+			buildConfigurationList = 41D409051902BD1000DE9A98 /* Build configuration list for PBXProject "DuokanLimitFreeMobile" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 41D409011902BD1000DE9A98;
+			productRefGroup = 41D4090B1902BD1000DE9A98 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				41D409091902BD1000DE9A98 /* DuokanLimitFreeMobile */,
+				41D4092D1902BD1000DE9A98 /* DuokanLimitFreeMobileTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		41D409081902BD1000DE9A98 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41D409291902BD1000DE9A98 /* Images.xcassets in Resources */,
+				41D409181902BD1000DE9A98 /* InfoPlist.strings in Resources */,
+				41D409211902BD1000DE9A98 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41D4092C1902BD1000DE9A98 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41D4093A1902BD1000DE9A98 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		167FC933225C4C4E9AA71277 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C6DCEE4700804C27A27159B2 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		41D409061902BD1000DE9A98 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41D409621902C7FA00DE9A98 /* DuoKanLoginViewController.m in Sources */,
+				41D4096F190412AF00DE9A98 /* DuoKanDebugViewController.m in Sources */,
+				41D409271902BD1000DE9A98 /* DuoKanSecondViewController.m in Sources */,
+				41D4091E1902BD1000DE9A98 /* DuoKanAppDelegate.m in Sources */,
+				41D4095A1902C08500DE9A98 /* DuoKanMobileNotification.m in Sources */,
+				41D4091A1902BD1000DE9A98 /* main.m in Sources */,
+				41D409571902C07600DE9A98 /* DuoKanScheduler.m in Sources */,
+				41D4096C190403C600DE9A98 /* KeychainItemWrapper.m in Sources */,
+				41D409241902BD1000DE9A98 /* DuoKanFirstViewController.m in Sources */,
+				41D4094F1902BE1200DE9A98 /* DuoKanSessionInfo.m in Sources */,
+				41D409751905620B00DE9A98 /* DuoKanDebug.m in Sources */,
+				41D4094E1902BE1200DE9A98 /* DuoKanBook.m in Sources */,
+				41D409721904180600DE9A98 /* DuoKanHistoryViewController.m in Sources */,
+				41D409651903B23900DE9A98 /* DuoKanLocalStorage.m in Sources */,
+				41D4094D1902BE1200DE9A98 /* DuoKanApi.m in Sources */,
+				41D409501902BE1200DE9A98 /* DuoKanVariables.m in Sources */,
+				41D4095F1902C0C400DE9A98 /* DuoKanDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		41D4092A1902BD1000DE9A98 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41D409531902BE5400DE9A98 /* DuoKanApiTest.m in Sources */,
+				41D409541902BE5400DE9A98 /* DuoKanSessionInfoTest.m in Sources */,
+				41D4095C1902C09700DE9A98 /* DuoKanTestMobileNotification.m in Sources */,
+				41D4093C1902BD1000DE9A98 /* DuokanLimitFreeMobileTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		41D409341902BD1000DE9A98 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 41D409091902BD1000DE9A98 /* DuokanLimitFreeMobile */;
+			targetProxy = 41D409331902BD1000DE9A98 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		41D409161902BD1000DE9A98 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				41D409171902BD1000DE9A98 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		41D4091F1902BD1000DE9A98 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				41D409201902BD1000DE9A98 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		41D409381902BD1000DE9A98 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				41D409391902BD1000DE9A98 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		41D4093D1902BD1000DE9A98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		41D4093E1902BD1000DE9A98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		41D409401902BD1000DE9A98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 911278B13E5847AB88E5FA6E /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DuokanLimitFreeMobile/DuokanLimitFreeMobile-Prefix.pch";
+				INFOPLIST_FILE = "DuokanLimitFreeMobile/DuokanLimitFreeMobile-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		41D409411902BD1000DE9A98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 911278B13E5847AB88E5FA6E /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DuokanLimitFreeMobile/DuokanLimitFreeMobile-Prefix.pch";
+				INFOPLIST_FILE = "DuokanLimitFreeMobile/DuokanLimitFreeMobile-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		41D409431902BD1000DE9A98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/DuokanLimitFreeMobile.app/DuokanLimitFreeMobile";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DuokanLimitFreeMobile/DuokanLimitFreeMobile-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "DuokanLimitFreeMobileTests/DuokanLimitFreeMobileTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		41D409441902BD1000DE9A98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/DuokanLimitFreeMobile.app/DuokanLimitFreeMobile";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DuokanLimitFreeMobile/DuokanLimitFreeMobile-Prefix.pch";
+				INFOPLIST_FILE = "DuokanLimitFreeMobileTests/DuokanLimitFreeMobileTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		41D409051902BD1000DE9A98 /* Build configuration list for PBXProject "DuokanLimitFreeMobile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41D4093D1902BD1000DE9A98 /* Debug */,
+				41D4093E1902BD1000DE9A98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		41D4093F1902BD1000DE9A98 /* Build configuration list for PBXNativeTarget "DuokanLimitFreeMobile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41D409401902BD1000DE9A98 /* Debug */,
+				41D409411902BD1000DE9A98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		41D409421902BD1000DE9A98 /* Build configuration list for PBXNativeTarget "DuokanLimitFreeMobileTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				41D409431902BD1000DE9A98 /* Debug */,
+				41D409441902BD1000DE9A98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 41D409021902BD1000DE9A98 /* Project object */;
+}
