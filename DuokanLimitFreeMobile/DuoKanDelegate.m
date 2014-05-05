@@ -35,7 +35,7 @@
     [_api getBookInfo:freeBookURL withDelegate:self];
 }
 
-- (void)bookInfo:(DuoKanBook *)book withError:(NSError *)err {
+- (void)bookInfo:(Book *)book withError:(NSError *)err {
     if(book == nil) {
         NSLog(@"Failed to get book info because: %@", err);
         [_callback DuokanDelegate:self failure:book withError:err];
@@ -62,7 +62,7 @@
     [_callback DuokanDelegate:self success:book];
 }
 
-- (void)orderResult:(BOOL)ordered forBook:(DuoKanBook *)book withError:(NSError *)err {
+- (void)orderResult:(BOOL)ordered forBook:(Book *)book withError:(NSError *)err {
     if(err == nil) {
         if(_notification) {
             [_notification notifyBookOrdered:book];
@@ -89,6 +89,8 @@
 - (void) run {
     
     _api =  [[DuoKanApi alloc] init];
+    _util = [[DuoKanCoreDataUtil alloc] init];
+    [_api setDatabaseAPI:_util];
     
     DuoKanLocalStorage* storage = [DuoKanLocalStorage sharedStorage];
     NSString* username = [storage getUsername];

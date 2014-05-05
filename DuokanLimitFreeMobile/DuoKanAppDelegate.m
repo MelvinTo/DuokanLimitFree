@@ -67,12 +67,12 @@
     NSLog(@"background refresh ended");
 }
 
-- (void)DuokanDelegate:(id)delegate success:(DuoKanBook *)book {
+- (void)DuokanDelegate:(id)delegate success:(Book *)book {
     NSLog(@"Background job is executed successfully. %0.0f seconds left", [UIApplication sharedApplication].backgroundTimeRemaining);
     _handler(UIBackgroundFetchResultNewData);
 }
 
-- (void)DuokanDelegate:(id)delegate failure:(DuoKanBook *)book withError:(NSError *)err {
+- (void)DuokanDelegate:(id)delegate failure:(Book *)book withError:(NSError *)err {
     NSLog(@"Failed to execute background job: %@", [err localizedDescription]);
     _handler(UIBackgroundFetchResultFailed);
 }

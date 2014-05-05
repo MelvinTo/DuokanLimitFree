@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DuokanBook.h"
+#import "Book+Utility.h"
 
 @interface DuoKanMobileNotification : NSObject
 
-- (void) notifyBookOrdered: (DuoKanBook*) book;
+- (void) notifyBookOrdered: (Book*) book;
 
 @end

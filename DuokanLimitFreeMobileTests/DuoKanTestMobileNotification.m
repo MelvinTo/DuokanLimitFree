@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "DuoKanMobileNotification.h"
+#import "DuoKanCoreDataUtil.h"
 
 @interface DuoKanTestMobileNotification : XCTestCase
 
@@ -28,11 +29,13 @@
 }
 
 - (void)testNotifyBookOrdered {
-    DuoKanBook* book = [[DuoKanBook alloc] init];
+    DuoKanCoreDataUtil* util = [[DuoKanCoreDataUtil alloc] init];
+    
+    Book* book = [util createNewBook];
     book.title = @"三国演义";
-    book.price = @"6.0";
-    book.oldPrice = @"12.0";
-    book.ID = @"123455";
+    book.price = [NSNumber numberWithFloat:6.0];
+    book.oldPrice = [NSNumber numberWithFloat:12.0];
+    book.bookID = @"123455";
     book.rating = [NSNumber numberWithInt:8];
     
     DuoKanMobileNotification* notif = [[DuoKanMobileNotification alloc] init];

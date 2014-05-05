@@ -1,33 +1,28 @@
 //
-//  DuoKanBook.m
+//  Book+Utility.m
 //  DuokanBuyLimitFree
 //
 //  Created by Melvin Tu on 14-4-3.
 //  Copyright (c) 2014年 Melvin Tu. All rights reserved.
 //
 
-#import "DuoKanBook.h"
 
-@implementation DuoKanBook
 
-@synthesize ID = _ID;
-@synthesize title = _title;
-@synthesize price = _price;
-@synthesize oldPrice = _oldPrice;
-@synthesize cover = _cover;
-@synthesize url = _url;
-@synthesize author = _author;
+#import "Book+Utility.h"
+
+
+@implementation Book (Utility)
 
 - (NSString *)description {
     return [NSString stringWithFormat:@"%@, %@，原价%@", self.title, [self ratingString], self.oldPrice];
 }
 
 - (NSDictionary*) toDict {
-    return @{@"title":_title, @"price":_price};
+    return @{@"title":self.title, @"price":self.price};
 }
 
 - (NSString*) ratingString {
-    switch (_rating.intValue) {
+    switch (self.rating.intValue) {
         case 0:
             return @"零颗星";
             break;

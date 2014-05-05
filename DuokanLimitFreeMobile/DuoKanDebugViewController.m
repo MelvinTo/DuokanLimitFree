@@ -7,7 +7,7 @@
 //
 
 #import "DuoKanDebugViewController.h"
-#import "DuoKanBook.h"
+#import "Book+Utility.h"
 #import "DuoKanMobileNotification.h"
 #import "DuokanDelegate.h"
 
@@ -53,11 +53,11 @@
 */
 
 - (IBAction)triggerNotification:(id)sender {
-    DuoKanBook* book = [[DuoKanBook alloc] init];
+    Book* book = [[Book alloc] init];
     book.title = @"三国演义";
-    book.price = @"6.0";
-    book.oldPrice = @"12.0";
-    book.ID = @"123455";
+    book.price = [NSNumber numberWithFloat:6.0];
+    book.oldPrice = [NSNumber numberWithFloat:12.0];
+    book.bookID = @"123455";
     book.rating = [NSNumber numberWithInt:8];
     
     DuoKanMobileNotification* notif = [[DuoKanMobileNotification alloc] init];

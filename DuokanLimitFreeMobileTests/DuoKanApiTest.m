@@ -9,13 +9,14 @@
 #import <XCTest/XCTest.h>
 #import "DuoKanApi.h"
 #import "DuokanVariables.h"
+#import "DuoKanCoreDataUtil.h"
 
 static NSString* username = @"melvinto.01@gmail.com";
 static NSString* password = @"vMm7opDLRECL7c";
 
 @interface DuoKanApiTest : XCTestCase<DuoKanApiDelegate> {
     BOOL _requestComplete;
-    DuoKanBook* _book;
+    Book* _book;
     NSData* _testHtmlData;
 }
 
@@ -46,7 +47,7 @@ static NSString* password = @"vMm7opDLRECL7c";
     self.requestComplete = YES;
 }
 
-- (void)bookInfo:(DuoKanBook *)book withError:(NSError *)err {
+- (void)bookInfo:(Book *)book withError:(NSError *)err {
     XCTAssertNil(err, @"should have no error when getting info of book: %@", book);
     self.requestComplete = YES;
     _book = book;
@@ -105,11 +106,13 @@ static NSString* password = @"vMm7opDLRECL7c";
     </script> ";
     
     DuoKanApi* api = [[DuoKanApi alloc] init];
-    DuoKanBook* book = [api parseBookHTML:html];
+    [api setDatabaseAPI: [[DuoKanCoreDataUtil alloc] init]];
+    
+    Book* book = [api parseBookHTML:html];
     XCTAssertNotNil(book, @"book object should not be nil");
     XCTAssertTrue([book.title isEqualToString:@"男人除了性还在想什么？"], @"should have correct title");
-    XCTAssertTrue([book.ID isEqualToString:@"bcc917dd824b4c96857a138337a75dc2"], @"book id should exist");
-    XCTAssertTrue([book.price isEqualToString:@"0.0"], @"book price should exist");
+    XCTAssertTrue([book.bookID isEqualToString:@"bcc917dd824b4c96857a138337a75dc2"], @"book id should exist");
+    XCTAssertTrue([book.price isEqualToNumber:[NSNumber numberWithFloat:0.0]], @"book price should exist");
 }
 
 - (void)isOrdered:(BOOL)ordered forBook: book withError:(NSError *)err {
@@ -126,8 +129,11 @@ static NSString* password = @"vMm7opDLRECL7c";
 
 - (void) testIsOrdered {
     DuoKanApi* api =  [[DuoKanApi alloc] init];
-    DuoKanBook* book = [[DuoKanBook alloc] init];
-    book.ID = @"bcc917dd824b4c96857a138337a75dc2";
+    DuoKanCoreDataUtil* util = [[DuoKanCoreDataUtil alloc] init];
+    [api setDatabaseAPI: util];
+    
+    Book* book = [util createNewBook];
+    book.bookID = @"bcc917dd824b4c96857a138337a75dc2";
     
     NSRunLoop *theRL = [NSRunLoop currentRunLoop];
     
@@ -150,8 +156,11 @@ static NSString* password = @"vMm7opDLRECL7c";
 
 - (void) testOrder {
     DuoKanApi* api =  [[DuoKanApi alloc] init];
-    DuoKanBook* book = [[DuoKanBook alloc] init];
-    book.ID = @"bcc917dd824b4c96857a138337a75dc2";
+    DuoKanCoreDataUtil* util = [[DuoKanCoreDataUtil alloc] init];
+    [api setDatabaseAPI: util];
+    
+    Book* book = [util createNewBook];
+    book.bookID = @"bcc917dd824b4c96857a138337a75dc2";
     
     NSRunLoop *theRL = [NSRunLoop currentRunLoop];
     
@@ -172,6 +181,8 @@ static NSString* password = @"vMm7opDLRECL7c";
 
 - (void) testGetFreeBooks {
     DuoKanApi* api =  [[DuoKanApi alloc] init];
+    DuoKanCoreDataUtil* util = [[DuoKanCoreDataUtil alloc] init];
+    [api setDatabaseAPI: util];
     
     NSRunLoop *theRL = [NSRunLoop currentRunLoop];
 
@@ -325,6 +336,8 @@ static NSString* password = @"vMm7opDLRECL7c";
 
 - (void) testOrderOneBook {
     DuoKanApi* api =  [[DuoKanApi alloc] init];
+    DuoKanCoreDataUtil* util = [[DuoKanCoreDataUtil alloc] init];
+    [api setDatabaseAPI: util];
     
     NSRunLoop *theRL = [NSRunLoop currentRunLoop];
     

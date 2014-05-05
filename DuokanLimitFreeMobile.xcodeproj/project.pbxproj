@@ -23,7 +23,7 @@
 		41D4093A1902BD1000DE9A98 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41D409381902BD1000DE9A98 /* InfoPlist.strings */; };
 		41D4093C1902BD1000DE9A98 /* DuokanLimitFreeMobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D4093B1902BD1000DE9A98 /* DuokanLimitFreeMobileTests.m */; };
 		41D4094D1902BE1200DE9A98 /* DuoKanApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D409461902BE1200DE9A98 /* DuoKanApi.m */; };
-		41D4094E1902BE1200DE9A98 /* DuoKanBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D409481902BE1200DE9A98 /* DuoKanBook.m */; };
+		41D4094E1902BE1200DE9A98 /* Book+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D409481902BE1200DE9A98 /* Book+Utility.m */; };
 		41D4094F1902BE1200DE9A98 /* DuoKanSessionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D4094A1902BE1200DE9A98 /* DuoKanSessionInfo.m */; };
 		41D409501902BE1200DE9A98 /* DuoKanVariables.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D4094C1902BE1200DE9A98 /* DuoKanVariables.m */; };
 		41D409531902BE5400DE9A98 /* DuoKanApiTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D409511902BE5400DE9A98 /* DuoKanApiTest.m */; };
@@ -38,6 +38,10 @@
 		41D4096F190412AF00DE9A98 /* DuoKanDebugViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D4096E190412AF00DE9A98 /* DuoKanDebugViewController.m */; };
 		41D409721904180600DE9A98 /* DuoKanHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D409711904180600DE9A98 /* DuoKanHistoryViewController.m */; };
 		41D409751905620B00DE9A98 /* DuoKanDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D409741905620B00DE9A98 /* DuoKanDebug.m */; };
+		41D4097B19080B8800DE9A98 /* DuokanModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 41D4097919080B8800DE9A98 /* DuokanModel.xcdatamodeld */; };
+		41D4097E1908102600DE9A98 /* Record.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D4097D1908102600DE9A98 /* Record.m */; };
+		41D409811908102700DE9A98 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D409801908102700DE9A98 /* Book.m */; };
+		41D4098419081A1900DE9A98 /* DuoKanCoreDataUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D4098319081A1900DE9A98 /* DuoKanCoreDataUtil.m */; };
 		BACCC78DA7064895B1A28D41 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6507A2A49D243F89C8284B3 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -75,8 +79,8 @@
 		41D4093B1902BD1000DE9A98 /* DuokanLimitFreeMobileTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DuokanLimitFreeMobileTests.m; sourceTree = "<group>"; };
 		41D409451902BE1200DE9A98 /* DuoKanApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuoKanApi.h; sourceTree = "<group>"; };
 		41D409461902BE1200DE9A98 /* DuoKanApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuoKanApi.m; sourceTree = "<group>"; };
-		41D409471902BE1200DE9A98 /* DuoKanBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuoKanBook.h; sourceTree = "<group>"; };
-		41D409481902BE1200DE9A98 /* DuoKanBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuoKanBook.m; sourceTree = "<group>"; };
+		41D409471902BE1200DE9A98 /* Book+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Book+Utility.h"; sourceTree = "<group>"; };
+		41D409481902BE1200DE9A98 /* Book+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Book+Utility.m"; sourceTree = "<group>"; };
 		41D409491902BE1200DE9A98 /* DuoKanSessionInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuoKanSessionInfo.h; sourceTree = "<group>"; };
 		41D4094A1902BE1200DE9A98 /* DuoKanSessionInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuoKanSessionInfo.m; sourceTree = "<group>"; };
 		41D4094B1902BE1200DE9A98 /* DuokanVariables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuokanVariables.h; sourceTree = "<group>"; };
@@ -102,6 +106,13 @@
 		41D409711904180600DE9A98 /* DuoKanHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DuoKanHistoryViewController.m; path = ../DuoKanHistoryViewController.m; sourceTree = "<group>"; };
 		41D409731905620B00DE9A98 /* DuoKanDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuoKanDebug.h; sourceTree = "<group>"; };
 		41D409741905620B00DE9A98 /* DuoKanDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuoKanDebug.m; sourceTree = "<group>"; };
+		41D4097A19080B8800DE9A98 /* DuokanModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DuokanModel.xcdatamodel; sourceTree = "<group>"; };
+		41D4097C1908102600DE9A98 /* Record.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Record.h; sourceTree = "<group>"; };
+		41D4097D1908102600DE9A98 /* Record.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Record.m; sourceTree = "<group>"; };
+		41D4097F1908102700DE9A98 /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
+		41D409801908102700DE9A98 /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
+		41D4098219081A1900DE9A98 /* DuoKanCoreDataUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuoKanCoreDataUtil.h; sourceTree = "<group>"; };
+		41D4098319081A1900DE9A98 /* DuoKanCoreDataUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuoKanCoreDataUtil.m; sourceTree = "<group>"; };
 		911278B13E5847AB88E5FA6E /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		E6507A2A49D243F89C8284B3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -171,8 +182,8 @@
 				41D409461902BE1200DE9A98 /* DuoKanApi.m */,
 				41D4091C1902BD1000DE9A98 /* DuoKanAppDelegate.h */,
 				41D4091D1902BD1000DE9A98 /* DuoKanAppDelegate.m */,
-				41D409471902BE1200DE9A98 /* DuoKanBook.h */,
-				41D409481902BE1200DE9A98 /* DuoKanBook.m */,
+				41D409471902BE1200DE9A98 /* Book+Utility.h */,
+				41D409481902BE1200DE9A98 /* Book+Utility.m */,
 				41D4096D190412AF00DE9A98 /* DuoKanDebugViewController.h */,
 				41D4096E190412AF00DE9A98 /* DuoKanDebugViewController.m */,
 				41D4095D1902C0C400DE9A98 /* DuoKanDelegate.h */,
@@ -200,6 +211,13 @@
 				41D409141902BD1000DE9A98 /* Supporting Files */,
 				41D409731905620B00DE9A98 /* DuoKanDebug.h */,
 				41D409741905620B00DE9A98 /* DuoKanDebug.m */,
+				41D4097919080B8800DE9A98 /* DuokanModel.xcdatamodeld */,
+				41D4097F1908102700DE9A98 /* Book.h */,
+				41D409801908102700DE9A98 /* Book.m */,
+				41D4097C1908102600DE9A98 /* Record.h */,
+				41D4097D1908102600DE9A98 /* Record.m */,
+				41D4098219081A1900DE9A98 /* DuoKanCoreDataUtil.h */,
+				41D4098319081A1900DE9A98 /* DuoKanCoreDataUtil.m */,
 			);
 			path = DuokanLimitFreeMobile;
 			sourceTree = "<group>";
@@ -385,6 +403,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41D409811908102700DE9A98 /* Book.m in Sources */,
 				41D409621902C7FA00DE9A98 /* DuoKanLoginViewController.m in Sources */,
 				41D4096F190412AF00DE9A98 /* DuoKanDebugViewController.m in Sources */,
 				41D409271902BD1000DE9A98 /* DuoKanSecondViewController.m in Sources */,
@@ -392,14 +411,17 @@
 				41D4095A1902C08500DE9A98 /* DuoKanMobileNotification.m in Sources */,
 				41D4091A1902BD1000DE9A98 /* main.m in Sources */,
 				41D409571902C07600DE9A98 /* DuoKanScheduler.m in Sources */,
+				41D4098419081A1900DE9A98 /* DuoKanCoreDataUtil.m in Sources */,
 				41D4096C190403C600DE9A98 /* KeychainItemWrapper.m in Sources */,
 				41D409241902BD1000DE9A98 /* DuoKanFirstViewController.m in Sources */,
 				41D4094F1902BE1200DE9A98 /* DuoKanSessionInfo.m in Sources */,
 				41D409751905620B00DE9A98 /* DuoKanDebug.m in Sources */,
-				41D4094E1902BE1200DE9A98 /* DuoKanBook.m in Sources */,
+				41D4094E1902BE1200DE9A98 /* Book+Utility.m in Sources */,
 				41D409721904180600DE9A98 /* DuoKanHistoryViewController.m in Sources */,
 				41D409651903B23900DE9A98 /* DuoKanLocalStorage.m in Sources */,
+				41D4097E1908102600DE9A98 /* Record.m in Sources */,
 				41D4094D1902BE1200DE9A98 /* DuoKanApi.m in Sources */,
+				41D4097B19080B8800DE9A98 /* DuokanModel.xcdatamodeld in Sources */,
 				41D409501902BE1200DE9A98 /* DuoKanVariables.m in Sources */,
 				41D4095F1902C0C400DE9A98 /* DuoKanDelegate.m in Sources */,
 			);
@@ -623,6 +645,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		41D4097919080B8800DE9A98 /* DuokanModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				41D4097A19080B8800DE9A98 /* DuokanModel.xcdatamodel */,
+			);
+			currentVersion = 41D4097A19080B8800DE9A98 /* DuokanModel.xcdatamodel */;
+			path = DuokanModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 41D409021902BD1000DE9A98 /* Project object */;
 }

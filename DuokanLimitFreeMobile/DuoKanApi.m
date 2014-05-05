@@ -82,7 +82,7 @@
     return nil;
 }
 
-- (DuoKanBook*) getBookInfo: (NSString*) url withDelegate:(id<DuoKanApiDelegate>)delegate {
+- (Book*) getBookInfo: (NSString*) url withDelegate:(id<DuoKanApiDelegate>)delegate {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
     NSLog(@"calling url %@", duokanLoginURL);
@@ -95,7 +95,7 @@
         
 //        NSLog(@"Response: %@", htmlString);
         
-        DuoKanBook* book = [self parseBookHTML:htmlString];
+        Book* book = [self parseBookHTML:htmlString];
         [delegate bookInfo:book withError:nil];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"getBookInfo Error: %@", error);
@@ -135,20 +135,24 @@
     return nil;
 }
 
-- (DuoKanBook*) parseBookHTML: (NSString*) htmlString {
+- (void) setDatabaseAPI: (id<DuokanDatabaseAPI>) api {
+    _dbAPI = api;
+}
+
+- (Book*) parseBookHTML: (NSString*) htmlString {
     
-    DuoKanBook* book = nil;
+    Book *book = [_dbAPI createNewBook];
+    
     NSString* jsonString = [self parseData:htmlString withPattern:@"(window.dk_data = \\{[^\\}]+book : \\{[^\\}]+\\})[^\\}]*\\}"];
     
-    book = [[DuoKanBook alloc] init];
     book.title = [self parseData:jsonString withPattern:@"title : '([^']*)'"];
-    book.ID = [self parseData:jsonString withPattern:@"book_id : '([^']*)'"];
-    book.price = [self parseData:jsonString withPattern:@"price : '([^']*)'"];
-    book.oldPrice = [self parseData:jsonString withPattern:@"old_price : '([^']*)'"];
+    book.bookID = [self parseData:jsonString withPattern:@"book_id : '([^']*)'"];
+    book.price = [NSNumber numberWithFloat:[[self parseData:jsonString withPattern:@"price : '([^']*)'"] floatValue]];
+    book.oldPrice = [NSNumber numberWithFloat:[[self parseData:jsonString withPattern:@"old_price : '([^']*)'"] floatValue]];
     book.cover = [self parseData:jsonString withPattern:@"cover : '([^']*)'"];
     book.url = [NSString stringWithFormat:@"%@%@", duokanMainURL, [self parseData:jsonString withPattern:@"url : '([^']*)'"]];
     book.author = [self parseData:jsonString withPattern:@"authors : '([^']*)'"];
-
+    
     // get rating
     book.rating = [self getRating:htmlString];
     
@@ -156,13 +160,13 @@
 
 }
 
-- (void) isOrdered: (DuoKanBook*) book inSession: (DuoKanSessionInfo*) session withDelegate:(id<DuoKanApiDelegate>)delegate {
+- (void) isOrdered: (Book*) book inSession: (DuoKanSessionInfo*) session withDelegate:(id<DuoKanApiDelegate>)delegate {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
     NSLog(@"calling url %@", duokanCheckURL);
     
     NSDictionary *parameters = @{
-                                 @"book_uuid": book.ID,
+                                 @"book_uuid": book.bookID,
                                  @"token": session.token,
                                  @"user_id": session.userID,
                                  @"app_id": session.appID,
@@ -190,13 +194,13 @@
     }];
 }
 
-- (void) order: (DuoKanBook*) book inSession: (DuoKanSessionInfo*) session withDelegate: (id<DuoKanApiDelegate>) delegate {
+- (void) order: (Book*) book inSession: (DuoKanSessionInfo*) session withDelegate: (id<DuoKanApiDelegate>) delegate {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
     NSLog(@"calling url %@", duokanOrderURL);
     
     NSDictionary *parameters = @{
-                                 @"book_uuid": book.ID,
+                                 @"book_uuid": book.bookID,
                                  @"token": session.token,
                                  @"user_id": session.userID,
                                  @"app_id": session.appID,
@@ -213,6 +217,7 @@
             if([result isEqual:[NSNumber numberWithInt:0]] && [msg isEqualToString:@"成功"]) {
                 NSLog(@"Succesfully ordered book: %@", book);
                 [delegate orderResult:YES forBook: book withError:nil];
+                [_dbAPI saveNewBook:book];
                 return;
             }
             

@@ -10,7 +10,7 @@
 
 @implementation DuoKanMobileNotification
 
-- (void) notifyBookOrdered: (DuoKanBook*) book {
+- (void) notifyBookOrdered: (Book*) book {
     
     if(book == nil) {
         return;
