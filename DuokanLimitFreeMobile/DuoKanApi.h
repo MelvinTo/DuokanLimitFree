@@ -9,11 +9,19 @@
 #import <Foundation/Foundation.h>
 #import "DuoKanSessionInfo.h"
 #import "Book+Utility.h"
+#import "Record+Utility.h"
 
 @protocol DuokanDatabaseAPI <NSObject>
 
-- (Book*) createNewBook;
-- (NSError*) saveNewBook: (Book*) book;
+- (Book *)createNewBook;
+- (NSError*)save;
+- (bool) checkIfBookExists:(Book *)book;
+- (NSError*)deleteBook:(Book*)book;
+- (Record*)createNewRecord;
+- (NSError*)deleteRecord:(Record*)record;
+
+@optional
+- (NSArray*)getAllRecords;
 
 @end
 

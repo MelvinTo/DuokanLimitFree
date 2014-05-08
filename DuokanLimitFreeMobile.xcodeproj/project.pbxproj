@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		417319EA191A8E51001E9160 /* DuoKanCoreDataUtilTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 417319E9191A8E51001E9160 /* DuoKanCoreDataUtilTest.m */; };
+		417319ED191AAB6C001E9160 /* Record+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 417319EC191AAB6C001E9160 /* Record+Utility.m */; };
 		41D4090E1902BD1000DE9A98 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D4090D1902BD1000DE9A98 /* Foundation.framework */; };
 		41D409101902BD1000DE9A98 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D4090F1902BD1000DE9A98 /* CoreGraphics.framework */; };
 		41D409121902BD1000DE9A98 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D409111902BD1000DE9A98 /* UIKit.framework */; };
@@ -56,6 +58,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		417319E9191A8E51001E9160 /* DuoKanCoreDataUtilTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DuoKanCoreDataUtilTest.m; path = DuokanLimitFreeMobileTests/DuoKanCoreDataUtilTest.m; sourceTree = SOURCE_ROOT; };
+		417319EB191AAB6C001E9160 /* Record+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Record+Utility.h"; sourceTree = "<group>"; };
+		417319EC191AAB6C001E9160 /* Record+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Record+Utility.m"; sourceTree = "<group>"; };
 		41D4090A1902BD1000DE9A98 /* DuokanLimitFreeMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DuokanLimitFreeMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41D4090D1902BD1000DE9A98 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		41D4090F1902BD1000DE9A98 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -218,6 +223,8 @@
 				41D4097D1908102600DE9A98 /* Record.m */,
 				41D4098219081A1900DE9A98 /* DuoKanCoreDataUtil.h */,
 				41D4098319081A1900DE9A98 /* DuoKanCoreDataUtil.m */,
+				417319EB191AAB6C001E9160 /* Record+Utility.h */,
+				417319EC191AAB6C001E9160 /* Record+Utility.m */,
 			);
 			path = DuokanLimitFreeMobile;
 			sourceTree = "<group>";
@@ -236,6 +243,7 @@
 		41D409351902BD1000DE9A98 /* DuokanLimitFreeMobileTests */ = {
 			isa = PBXGroup;
 			children = (
+				417319E9191A8E51001E9160 /* DuoKanCoreDataUtilTest.m */,
 				41D409511902BE5400DE9A98 /* DuoKanApiTest.m */,
 				41D409521902BE5400DE9A98 /* DuoKanSessionInfoTest.m */,
 				41D4093B1902BD1000DE9A98 /* DuokanLimitFreeMobileTests.m */,
@@ -404,6 +412,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				41D409811908102700DE9A98 /* Book.m in Sources */,
+				417319ED191AAB6C001E9160 /* Record+Utility.m in Sources */,
 				41D409621902C7FA00DE9A98 /* DuoKanLoginViewController.m in Sources */,
 				41D4096F190412AF00DE9A98 /* DuoKanDebugViewController.m in Sources */,
 				41D409271902BD1000DE9A98 /* DuoKanSecondViewController.m in Sources */,
@@ -434,6 +443,7 @@
 				41D409531902BE5400DE9A98 /* DuoKanApiTest.m in Sources */,
 				41D409541902BE5400DE9A98 /* DuoKanSessionInfoTest.m in Sources */,
 				41D4095C1902C09700DE9A98 /* DuoKanTestMobileNotification.m in Sources */,
+				417319EA191A8E51001E9160 /* DuoKanCoreDataUtilTest.m in Sources */,
 				41D4093C1902BD1000DE9A98 /* DuokanLimitFreeMobileTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

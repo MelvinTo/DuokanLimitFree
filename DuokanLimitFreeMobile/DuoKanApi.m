@@ -182,6 +182,12 @@
             
             if([result isEqual:[NSNumber numberWithInt:0]] && [msg isEqualToString:@"成功"]) {
                 NSLog(@"Book [%@] is already ordered", book);
+                // insert the record if ordered already.
+                Record* record = [_dbAPI createNewRecord];
+                record.orderTime = [NSDate date];
+                record.book = book;
+                
+                [_dbAPI save];
                 [delegate isOrdered:YES forBook: book withError:nil];
                 return;
             }
@@ -217,7 +223,11 @@
             if([result isEqual:[NSNumber numberWithInt:0]] && [msg isEqualToString:@"成功"]) {
                 NSLog(@"Succesfully ordered book: %@", book);
                 [delegate orderResult:YES forBook: book withError:nil];
-                [_dbAPI saveNewBook:book];
+                Record* record = [_dbAPI createNewRecord];
+                record.orderTime = [NSDate date];
+                record.book = book;
+                
+                [_dbAPI save];
                 return;
             }
             

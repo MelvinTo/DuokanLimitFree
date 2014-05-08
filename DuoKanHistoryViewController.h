@@ -7,9 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 
-@interface DuoKanHistoryViewController : UIViewController {
-    IBOutlet UITableView* _tableView;
+@interface DuoKanHistoryViewController : UITableViewController <NSFetchedResultsControllerDelegate> {
+//    IBOutlet UITableView* _tableView;
+    
+    
 }
+
+@property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 
 @end

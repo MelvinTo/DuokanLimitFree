@@ -10,23 +10,38 @@
 
 @implementation DuoKanCoreDataUtil
 
-- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
++ (DuoKanCoreDataUtil *)sharedUtility {
+    static DuoKanCoreDataUtil* _shared = nil;
     
-    if (_persistentStoreCoordinator == nil) {
-        NSURL *storeUrl = [NSURL fileURLWithPath:self.persistentStorePath];
-        _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[NSManagedObjectModel mergedModelFromBundles:nil]];
-        NSError *error = nil;
-        NSPersistentStore *persistentStore = [_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:nil error:&error];
-        NSAssert3(persistentStore != nil, @"Unhandled error adding persistent store in %s at line %d: %@", __FUNCTION__, __LINE__, [error localizedDescription]);
+    @synchronized(_shared) {
+        if (_shared == nil) {
+            _shared = [[DuoKanCoreDataUtil alloc] init];
+        }
     }
-    return _persistentStoreCoordinator;
+    
+    return _shared;
+}
+
+- (void) setupManagedObjectContext {
+    self.managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+    self.managedObjectContext.persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
+    
+    NSError* error;
+    NSString* path = [self persistentStorePath];
+    NSURL* storeLocation = [NSURL fileURLWithPath:path];
+                            
+    [self.managedObjectContext.persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeLocation options:nil error:&error];
+    
+    if (error) {
+        NSLog(@"error: %@", [error localizedDescription]);
+    }
+    
 }
 
 - (NSManagedObjectContext *)managedObjectContext {
     
     if (_managedObjectContext == nil) {
-        _managedObjectContext = [[NSManagedObjectContext alloc] init];
-        [self.managedObjectContext setPersistentStoreCoordinator:self.persistentStoreCoordinator];
+        [self setupManagedObjectContext];
     }
     return _managedObjectContext;
 }
@@ -36,11 +51,21 @@
     if (_persistentStorePath == nil) {
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *documentsDirectory = [paths lastObject];
-        _persistentStorePath = [documentsDirectory stringByAppendingPathComponent:@"TopSongs.sqlite"];
+        _persistentStorePath = [documentsDirectory stringByAppendingPathComponent:@"Book.sqlite"];
     }
     return _persistentStorePath;
 }
 
+- (NSManagedObjectModel *)managedObjectModel {
+    if (_managedObjectModel != nil)
+    {
+        return _managedObjectModel;
+    }
+    
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"DuokanModel" withExtension:@"momd"];
+    _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+    return _managedObjectModel;
+}
 
 - (Book *)createNewBook {
     Book *book = [NSEntityDescription
@@ -49,8 +74,107 @@
     return book;
 }
 
-- (NSError*)saveNewBook:(Book *)book {
+- (NSError *)save {
+    NSError *error = nil;
+    [[self managedObjectContext] save:&error];
+    
+    if (error) {
+        NSLog(@"Failed to commit coredata change: %@", [error localizedDescription]);
+        return error;
+    }
+    
     return nil;
+}
+
+- (void)rollback {
+    [[self managedObjectContext] rollback];
+}
+
+- (bool) checkIfBookExists:(Book *)book {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"bookID == %@", book.bookID];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Book" inManagedObjectContext:managedObjectContext];
+    [request setPredicate:predicate];
+    [request setEntity:entity];
+    
+    NSError *error = nil;
+    NSUInteger count = [managedObjectContext countForFetchRequest:request error:&error];
+    
+    if (error) {
+        return NO;
+    } else if (count != 0) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
+- (NSError*)deleteBook:(Book*)book {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"bookID == %@", book.bookID];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Book" inManagedObjectContext:managedObjectContext];
+    [request setPredicate:predicate];
+    [request setEntity:entity];
+    
+    NSError *fetchError = nil;
+    NSArray *fetchedBooks=[managedObjectContext executeFetchRequest:request error:&fetchError];
+    
+    if (!fetchError) {
+        for (NSManagedObject* bookRecord in fetchedBooks) {
+            [managedObjectContext deleteObject:bookRecord];
+        }
+        return nil;
+    } else {
+        return fetchError;
+    }
+}
+
+- (Record*)createNewRecord {
+    Record *record = [NSEntityDescription
+                  insertNewObjectForEntityForName:@"Record"
+                  inManagedObjectContext:[self managedObjectContext]];
+    return record;
+}
+
+
+- (NSError*)deleteRecord:(Record*)record {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"orderTime == %@ and book.bookID = %@ ", record.orderTime, [((Book*) record.book) bookID] ];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Record" inManagedObjectContext:managedObjectContext];
+    [request setPredicate:predicate];
+    [request setEntity:entity];
+    
+    NSError *fetchError = nil;
+    NSArray *fetchedBooks=[managedObjectContext executeFetchRequest:request error:&fetchError];
+    
+    if (!fetchError) {
+        for (NSManagedObject* bookRecord in fetchedBooks) {
+            [managedObjectContext deleteObject:bookRecord];
+        }
+        return nil;
+    } else {
+        return fetchError;
+    }
+
+}
+
+- (NSArray*) getAllRecords {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Record" inManagedObjectContext:managedObjectContext];
+    [request setEntity:entity];
+    
+    NSError *fetchError = nil;
+    NSArray *fetchedBooks=[managedObjectContext executeFetchRequest:request error:&fetchError];
+    
+    if (!fetchError) {
+        return fetchedBooks;
+    } else {
+        return nil;
+    }
 }
 
 @end

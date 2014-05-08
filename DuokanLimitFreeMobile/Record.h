@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "Book+Utility.h"
 
 
 @interface Record : NSManagedObject
 
 @property (nonatomic, retain) NSDate * orderTime;
-@property (nonatomic, retain) NSManagedObject *book;
+@property (nonatomic, retain) Book *book;
 
 @end
