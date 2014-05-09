@@ -25,6 +25,10 @@
     return [NSString stringWithFormat:@"%@!e", self.cover];
 }
 
+- (NSString*) duokanAppURL {
+    return [NSString stringWithFormat:@"duokan-reader://store/book/%@", self.bookID];
+}
+
 - (NSString*) ratingString {
     switch (self.rating.intValue) {
         case 0:

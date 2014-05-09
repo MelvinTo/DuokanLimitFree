@@ -15,4 +15,6 @@
 
 @property (nonatomic, strong) Record* record;
 
+- (IBAction)action:(id)sender;
+
 @end

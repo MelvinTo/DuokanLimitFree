@@ -73,7 +73,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="NMR-9F-YYQ"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="NMR-9F-YYQ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="Y8c-DP-qLK">
+                            <connections>
+                                <action selector="action:" destination="aJS-Fp-Iin" id="jrS-mU-xaZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="_webView" destination="G5z-Tq-STd" id="5xU-va-Rbb"/>
                     </connections>

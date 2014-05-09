@@ -14,5 +14,6 @@
 - (NSDictionary*) toDict;
 - (NSString*) ratingString;
 - (NSString*) thumbCover;
+- (NSString*) duokanAppURL;
 
 @end

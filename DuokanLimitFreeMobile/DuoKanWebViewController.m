@@ -17,4 +17,10 @@
     NSLog(@"Loading web page: %@", url);
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
 }
+
+- (IBAction)action:(id)sender {
+    NSLog(@"action is clicked, opening book in duokan");
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:record.book.duokanAppURL]];
+}
+
 @end
