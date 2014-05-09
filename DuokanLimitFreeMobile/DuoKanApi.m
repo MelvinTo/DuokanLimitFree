@@ -149,7 +149,7 @@
     book.bookID = [self parseData:jsonString withPattern:@"book_id : '([^']*)'"];
     book.price = [NSNumber numberWithFloat:[[self parseData:jsonString withPattern:@"price : '([^']*)'"] floatValue]];
     book.oldPrice = [NSNumber numberWithFloat:[[self parseData:jsonString withPattern:@"old_price : '([^']*)'"] floatValue]];
-    book.cover = [self parseData:jsonString withPattern:@"cover : '([^']*)'"];
+    book.cover = [self parseData:jsonString withPattern:@"cover : '([^']*)!vt'"];
     book.url = [NSString stringWithFormat:@"%@%@", duokanMainURL, [self parseData:jsonString withPattern:@"url : '([^']*)'"]];
     book.author = [self parseData:jsonString withPattern:@"authors : '([^']*)'"];
     
@@ -226,7 +226,7 @@
                 Record* record = [_dbAPI createNewRecord];
                 record.orderTime = [NSDate date];
                 record.book = book;
-                
+            
                 [_dbAPI save];
                 return;
             }

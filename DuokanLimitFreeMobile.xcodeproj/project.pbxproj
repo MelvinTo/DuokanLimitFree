@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		41139364191D325100C4BCC1 /* placeholder_for_book.png in Resources */ = {isa = PBXBuildFile; fileRef = 41139363191D325100C4BCC1 /* placeholder_for_book.png */; };
 		417319EA191A8E51001E9160 /* DuoKanCoreDataUtilTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 417319E9191A8E51001E9160 /* DuoKanCoreDataUtilTest.m */; };
 		417319ED191AAB6C001E9160 /* Record+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 417319EC191AAB6C001E9160 /* Record+Utility.m */; };
+		417319F0191BE107001E9160 /* UIImage+Functions.m in Sources */ = {isa = PBXBuildFile; fileRef = 417319EF191BE107001E9160 /* UIImage+Functions.m */; };
+		417319F3191BEA7E001E9160 /* DuoKanWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 417319F2191BEA7E001E9160 /* DuoKanWebViewController.m */; };
 		41D4090E1902BD1000DE9A98 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D4090D1902BD1000DE9A98 /* Foundation.framework */; };
 		41D409101902BD1000DE9A98 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D4090F1902BD1000DE9A98 /* CoreGraphics.framework */; };
 		41D409121902BD1000DE9A98 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D409111902BD1000DE9A98 /* UIKit.framework */; };
@@ -58,9 +61,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		41139363191D325100C4BCC1 /* placeholder_for_book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder_for_book.png; sourceTree = "<group>"; };
 		417319E9191A8E51001E9160 /* DuoKanCoreDataUtilTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DuoKanCoreDataUtilTest.m; path = DuokanLimitFreeMobileTests/DuoKanCoreDataUtilTest.m; sourceTree = SOURCE_ROOT; };
 		417319EB191AAB6C001E9160 /* Record+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Record+Utility.h"; sourceTree = "<group>"; };
 		417319EC191AAB6C001E9160 /* Record+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Record+Utility.m"; sourceTree = "<group>"; };
+		417319EE191BE107001E9160 /* UIImage+Functions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Functions.h"; sourceTree = "<group>"; };
+		417319EF191BE107001E9160 /* UIImage+Functions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Functions.m"; sourceTree = "<group>"; };
+		417319F1191BEA7E001E9160 /* DuoKanWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuoKanWebViewController.h; sourceTree = "<group>"; };
+		417319F2191BEA7E001E9160 /* DuoKanWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuoKanWebViewController.m; sourceTree = "<group>"; };
 		41D4090A1902BD1000DE9A98 /* DuokanLimitFreeMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DuokanLimitFreeMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41D4090D1902BD1000DE9A98 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		41D4090F1902BD1000DE9A98 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -183,12 +191,18 @@
 			isa = PBXGroup;
 			children = (
 				41D409661903B40C00DE9A98 /* 3rdparty */,
+				41D409471902BE1200DE9A98 /* Book+Utility.h */,
+				41D409481902BE1200DE9A98 /* Book+Utility.m */,
+				41D4097F1908102700DE9A98 /* Book.h */,
+				41D409801908102700DE9A98 /* Book.m */,
 				41D409451902BE1200DE9A98 /* DuoKanApi.h */,
 				41D409461902BE1200DE9A98 /* DuoKanApi.m */,
 				41D4091C1902BD1000DE9A98 /* DuoKanAppDelegate.h */,
 				41D4091D1902BD1000DE9A98 /* DuoKanAppDelegate.m */,
-				41D409471902BE1200DE9A98 /* Book+Utility.h */,
-				41D409481902BE1200DE9A98 /* Book+Utility.m */,
+				41D4098219081A1900DE9A98 /* DuoKanCoreDataUtil.h */,
+				41D4098319081A1900DE9A98 /* DuoKanCoreDataUtil.m */,
+				41D409731905620B00DE9A98 /* DuoKanDebug.h */,
+				41D409741905620B00DE9A98 /* DuoKanDebug.m */,
 				41D4096D190412AF00DE9A98 /* DuoKanDebugViewController.h */,
 				41D4096E190412AF00DE9A98 /* DuoKanDebugViewController.m */,
 				41D4095D1902C0C400DE9A98 /* DuoKanDelegate.h */,
@@ -203,6 +217,7 @@
 				41D409611902C7FA00DE9A98 /* DuoKanLoginViewController.m */,
 				41D409581902C08500DE9A98 /* DuoKanMobileNotification.h */,
 				41D409591902C08500DE9A98 /* DuoKanMobileNotification.m */,
+				41D4097919080B8800DE9A98 /* DuokanModel.xcdatamodeld */,
 				41D409551902C07600DE9A98 /* DuoKanScheduler.h */,
 				41D409561902C07600DE9A98 /* DuoKanScheduler.m */,
 				41D409251902BD1000DE9A98 /* DuoKanSecondViewController.h */,
@@ -211,20 +226,17 @@
 				41D4094A1902BE1200DE9A98 /* DuoKanSessionInfo.m */,
 				41D4094B1902BE1200DE9A98 /* DuokanVariables.h */,
 				41D4094C1902BE1200DE9A98 /* DuoKanVariables.m */,
+				417319F1191BEA7E001E9160 /* DuoKanWebViewController.h */,
+				417319F2191BEA7E001E9160 /* DuoKanWebViewController.m */,
 				41D409281902BD1000DE9A98 /* Images.xcassets */,
 				41D4091F1902BD1000DE9A98 /* Main.storyboard */,
-				41D409141902BD1000DE9A98 /* Supporting Files */,
-				41D409731905620B00DE9A98 /* DuoKanDebug.h */,
-				41D409741905620B00DE9A98 /* DuoKanDebug.m */,
-				41D4097919080B8800DE9A98 /* DuokanModel.xcdatamodeld */,
-				41D4097F1908102700DE9A98 /* Book.h */,
-				41D409801908102700DE9A98 /* Book.m */,
-				41D4097C1908102600DE9A98 /* Record.h */,
-				41D4097D1908102600DE9A98 /* Record.m */,
-				41D4098219081A1900DE9A98 /* DuoKanCoreDataUtil.h */,
-				41D4098319081A1900DE9A98 /* DuoKanCoreDataUtil.m */,
 				417319EB191AAB6C001E9160 /* Record+Utility.h */,
 				417319EC191AAB6C001E9160 /* Record+Utility.m */,
+				41D4097C1908102600DE9A98 /* Record.h */,
+				41D4097D1908102600DE9A98 /* Record.m */,
+				41D409141902BD1000DE9A98 /* Supporting Files */,
+				417319EE191BE107001E9160 /* UIImage+Functions.h */,
+				417319EF191BE107001E9160 /* UIImage+Functions.m */,
 			);
 			path = DuokanLimitFreeMobile;
 			sourceTree = "<group>";
@@ -232,6 +244,7 @@
 		41D409141902BD1000DE9A98 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				41139363191D325100C4BCC1 /* placeholder_for_book.png */,
 				41D409151902BD1000DE9A98 /* DuokanLimitFreeMobile-Info.plist */,
 				41D409161902BD1000DE9A98 /* InfoPlist.strings */,
 				41D409191902BD1000DE9A98 /* main.m */,
@@ -359,6 +372,7 @@
 			files = (
 				41D409291902BD1000DE9A98 /* Images.xcassets in Resources */,
 				41D409181902BD1000DE9A98 /* InfoPlist.strings in Resources */,
+				41139364191D325100C4BCC1 /* placeholder_for_book.png in Resources */,
 				41D409211902BD1000DE9A98 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,7 +434,9 @@
 				41D4095A1902C08500DE9A98 /* DuoKanMobileNotification.m in Sources */,
 				41D4091A1902BD1000DE9A98 /* main.m in Sources */,
 				41D409571902C07600DE9A98 /* DuoKanScheduler.m in Sources */,
+				417319F0191BE107001E9160 /* UIImage+Functions.m in Sources */,
 				41D4098419081A1900DE9A98 /* DuoKanCoreDataUtil.m in Sources */,
+				417319F3191BEA7E001E9160 /* DuoKanWebViewController.m in Sources */,
 				41D4096C190403C600DE9A98 /* KeychainItemWrapper.m in Sources */,
 				41D409241902BD1000DE9A98 /* DuoKanFirstViewController.m in Sources */,
 				41D4094F1902BE1200DE9A98 /* DuoKanSessionInfo.m in Sources */,

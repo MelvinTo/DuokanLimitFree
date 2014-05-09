@@ -10,5 +10,13 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "-[DuoKanHistoryViewController configureCell:atIndexPath:]:DuoKanHistoryViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "cell.accessoryView.image">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

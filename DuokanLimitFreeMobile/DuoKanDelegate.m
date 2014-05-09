@@ -89,7 +89,7 @@
 - (void) run {
     
     _api =  [[DuoKanApi alloc] init];
-    _util = [[DuoKanCoreDataUtil alloc] init];
+    _util = [DuoKanCoreDataUtil sharedUtility];
     [_api setDatabaseAPI:_util];
     
     DuoKanLocalStorage* storage = [DuoKanLocalStorage sharedStorage];

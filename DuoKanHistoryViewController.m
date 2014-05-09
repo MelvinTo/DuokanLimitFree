@@ -8,6 +8,9 @@
 
 #import "DuoKanHistoryViewController.h"
 #import "DuoKanCoreDataUtil.h"
+#import "UIImage+Functions.h"
+#import "DuoKanWebViewController.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface NSDate (DateDiff)
 - (NSString*) diffTimeWithNow;
@@ -54,6 +57,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.title = @"抢书历史";
     self.managedObjectContext = [[DuoKanCoreDataUtil sharedUtility] managedObjectContext];
 
     NSError *error;
@@ -90,6 +94,7 @@
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Record"];
     fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"orderTime" ascending:NO]];
     
+    NSLog(@"managedObjectContext for history: %@", [self managedObjectContext]);
     NSFetchedResultsController *theFetchedResultsController =
     [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
                                         managedObjectContext:[self managedObjectContext] sectionNameKeyPath:nil
@@ -132,59 +137,122 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     Record *record = [_fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = record.book.title;
+    
+//    SDWebImageDownloader* downloader = [[SDWebImageDownloader alloc] init];
+//    [downloader downloadImageWithURL:[NSURL URLWithString:[record.book thumbCover]] options:SDWebImageDownloaderHighPriority progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+//        // do nothing
+//    } completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
+//        image = [image scaleProportionalToSize:CGSizeMake(192,256)];
+//        image = [UIImage imageWithCGImage:image.CGImage scale:2 orientation:image.imageOrientation];
+//        NSLog(@"image size is : %f, %f", image.size.width, image.size.height);
+//        [cell.imageView setImage:image];
+//        [cell setNeedsLayout];
+//    }];
+//    UIImage* image = [UIImage imageWithData:
+//                      [NSData dataWithContentsOfURL:
+//                       [NSURL URLWithString:[record.book thumbCover]]]];
+//    image=[image scaleProportionalToSize:CGSizeMake(192, 256)];
+//    
+//    image = [UIImage imageWithCGImage:image.CGImage scale:2 orientation:image.imageOrientation];
+//
+//                      
+//    NSLog(@"image size is : %f, %f", image.size.width, image.size.height);
+//    
+//    UIImageView* imageView = [[UIImageView alloc] initWithImage:image];
+//    
+//    NSLog(@"imageView size is : %f, %f", imageView.frame.size.width, imageView.frame.size.height);
+//    [cell.imageView setImageWithURL:[NSURL URLWithString:[record.book thumbCover]]
+//                   placeholderImage:[UIImage imageNamed:@"placeholder_for_book.png"]];
+    [cell.imageView setImageWithURL:[NSURL URLWithString:[record.book thumbCover]]
+                   placeholderImage:[UIImage imageNamed:@"placeholder_for_book.png"]
+                          completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+        image = [image scaleProportionalToSize:CGSizeMake(192,256)];
+        image = [UIImage imageWithCGImage:image.CGImage scale:2 orientation:image.imageOrientation];
+    }];
+//    cell.accessoryView = imageView;
+    
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@, 原价%@元,购买于%@",
                                  [record.book ratingString], record.book.oldPrice, [record.orderTime diffTimeWithNow]];
 }
 
 
-//- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
-//    [self.tableView beginUpdates];
-//}
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    NSLog(@"will change content...");
+    [self.tableView beginUpdates];
+}
+
+
+- (void)controller:(NSFetchedResultsController *)controller
+                didChangeObject:(id)anObject
+                atIndexPath:(NSIndexPath *)indexPath
+                forChangeType:(NSFetchedResultsChangeType)type
+                newIndexPath:(NSIndexPath *)newIndexPath {
+    NSLog(@"didChangeObject is called");
+    
+    UITableView *tableView = self.tableView;
+    
+    switch(type) {
+            
+        case NSFetchedResultsChangeInsert:
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeUpdate:
+            [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+            break;
+            
+        case NSFetchedResultsChangeMove:
+            [tableView deleteRowsAtIndexPaths:[NSArray
+                                               arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [tableView insertRowsAtIndexPaths:[NSArray
+                                               arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+    
+}
+
 //
-//- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
-//    UITableView *tableView = self.tableView;
-//    
-//    switch(type) {
-//            
-//        case NSFetchedResultsChangeInsert:
-//            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-//            break;
-//            
-//        case NSFetchedResultsChangeDelete:
-//            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-//            break;
-//            
-//        case NSFetchedResultsChangeUpdate:
-//            [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
-//            break;
-//            
-//        case NSFetchedResultsChangeMove:
-//            [tableView deleteRowsAtIndexPaths:[NSArray
-//                                               arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-//            [tableView insertRowsAtIndexPaths:[NSArray
-//                                               arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
-//            break;
-//    }
-//}
-//
-//- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id )sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
-//    
-//    switch(type) {
-//            
-//        case NSFetchedResultsChangeInsert:
-//            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
-//            break;
-//            
-//        case NSFetchedResultsChangeDelete:
-//            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
-//            break;
-//    }
-//}
+- (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id )sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+    NSLog(@"didChangeSection is called");
+    switch(type) {
+            
+        case NSFetchedResultsChangeInsert:
+            [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
 //
 //
-//- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-//    // The fetch controller has sent all current change notifications, so tell the table view to process all updates.
-//    [self.tableView endUpdates];
-//}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    NSLog(@"controllerDidChangeContent is called");
+    // The fetch controller has sent all current change notifications, so tell the table view to process all updates.
+    [self.tableView endUpdates];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 140.0;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    Record *record = [_fetchedResultsController objectAtIndexPath:indexPath];
+    [self performSegueWithIdentifier:@"web" sender:record];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"web"]) {
+        NSLog(@"call segue web");
+        DuoKanWebViewController* controller = [segue destinationViewController];
+        controller.record = (Record*) sender;
+    }
+}
 
 @end

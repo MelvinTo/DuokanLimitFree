@@ -13,5 +13,6 @@
 
 - (NSDictionary*) toDict;
 - (NSString*) ratingString;
+- (NSString*) thumbCover;
 
 @end

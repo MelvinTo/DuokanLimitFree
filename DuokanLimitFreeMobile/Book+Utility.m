@@ -21,6 +21,10 @@
     return @{@"title":self.title, @"price":self.price};
 }
 
+- (NSString*) thumbCover {
+    return [NSString stringWithFormat:@"%@!e", self.cover];
+}
+
 - (NSString*) ratingString {
     switch (self.rating.intValue) {
         case 0:

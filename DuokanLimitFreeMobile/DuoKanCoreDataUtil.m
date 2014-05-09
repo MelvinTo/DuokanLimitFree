@@ -76,6 +76,9 @@
 
 - (NSError *)save {
     NSError *error = nil;
+    
+    NSLog(@"managedObjectContext for utility: %@", [self managedObjectContext]);
+    
     [[self managedObjectContext] save:&error];
     
     if (error) {
