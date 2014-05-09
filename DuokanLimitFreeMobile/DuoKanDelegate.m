@@ -10,6 +10,7 @@
 #import "DuoKanMobileNotification.h"
 #import "DuoKanLocalStorage.h"
 #import "DuoKanDebug.h"
+#import "DuoKanCoreDataUtil.h"
 
 @implementation DuoKanDelegate
 
@@ -42,8 +43,14 @@
         return;
     }
     
-    // check if this book is already ordered
-    [_api isOrdered:book inSession:[DuoKanSessionInfo getSessionFromCookie] withDelegate:self];
+    // check if this book is already in local database
+    bool result = [[DuoKanCoreDataUtil sharedUtility] checkIfBookExists:book];
+    if (!result) {
+        // check if this book is already ordered
+        [_api isOrdered:book inSession:[DuoKanSessionInfo getSessionFromCookie] withDelegate:self];
+    } else {
+        NSLog(@"book already in core data, ignored: %@", book);
+    }
 }
 
 - (void)isOrdered:(BOOL)ordered forBook: book withError:(NSError *)err {

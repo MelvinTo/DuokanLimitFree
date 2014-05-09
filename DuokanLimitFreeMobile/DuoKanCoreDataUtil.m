@@ -8,6 +8,25 @@
 
 #import "DuoKanCoreDataUtil.h"
 
+@interface NSManagedObject(IsNew)
+
+/*!
+ @method isNew
+ @abstract   Returns YES if this managed object is new and has not yet been saved yet into the persistent store.
+ */
+-(BOOL)isNew;
+
+@end
+
+@implementation NSManagedObject(IsNew)
+
+-(BOOL)isNew {
+    NSDictionary *vals = [self committedValuesForKeys:nil];
+    return [vals count] == 0;
+}
+
+@end
+
 @implementation DuoKanCoreDataUtil
 
 + (DuoKanCoreDataUtil *)sharedUtility {
@@ -101,16 +120,20 @@
     [request setPredicate:predicate];
     [request setEntity:entity];
     
-    NSError *error = nil;
-    NSUInteger count = [managedObjectContext countForFetchRequest:request error:&error];
+    NSError *fetchError = nil;
+    NSArray *fetchedBooks=[managedObjectContext executeFetchRequest:request error:&fetchError];
     
-    if (error) {
+    if (!fetchError) {
+        for (NSManagedObject* bookRecord in fetchedBooks) {
+            if (! [bookRecord isNew]) {
+                return YES;
+            }
+        }
         return NO;
-    } else if (count != 0) {
-        return YES;
     } else {
         return NO;
     }
+
 }
 
 - (NSError*)deleteBook:(Book*)book {
