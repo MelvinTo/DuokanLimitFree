@@ -19,8 +19,44 @@
 }
 
 - (IBAction)action:(id)sender {
-    NSLog(@"action is clicked, opening book in duokan");
+    // Display an action sheet for options
+    
+    UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:
+                            @"Safari",
+                            @"多看阅读",
+                            nil];
+    popup.tag = 1;
+    [popup showInView:[UIApplication sharedApplication].keyWindow];
+}
+
+- (void)openWithSafari {
+    NSLog(@"action is clicked, opening book in safari: %@", record.book);
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:record.book.url]];
+}
+
+- (void)openWithDuokanApp {
+    NSLog(@"action is clicked, opening book in duokan: %@", record.book);
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:record.book.duokanAppURL]];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    switch (actionSheet.tag) {
+        case 1: {
+            switch (buttonIndex) {
+                case 0:
+                    [self openWithSafari];
+                    break;
+                case 1:
+                    [self openWithDuokanApp];
+                    break;
+                default:
+                    break;
+            }
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 @end

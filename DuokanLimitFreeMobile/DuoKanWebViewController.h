@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Record+Utility.h"
 
-@interface DuoKanWebViewController : UIViewController {
+@interface DuoKanWebViewController : UIViewController<UIActionSheetDelegate> {
     IBOutlet UIWebView* _webView;
 }
 

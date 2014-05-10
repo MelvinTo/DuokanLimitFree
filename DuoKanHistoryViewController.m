@@ -11,6 +11,7 @@
 #import "UIImage+Functions.h"
 #import "DuoKanWebViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "SWRevealViewController.h"
 
 @interface NSDate (DateDiff)
 - (NSString*) diffTimeWithNow;
@@ -57,6 +58,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    // Set the side bar button action. When it's tapped, it'll show up the sidebar.
+    _menuButton.target = self.revealViewController;
+    _menuButton.action = @selector(revealToggle:);
+    
+    // Set the gesture
+    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    
+    NSLog(@"history view is loaded");
     self.title = @"抢书历史";
     self.managedObjectContext = [[DuoKanCoreDataUtil sharedUtility] managedObjectContext];
 

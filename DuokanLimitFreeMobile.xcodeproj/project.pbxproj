@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		41139364191D325100C4BCC1 /* placeholder_for_book.png in Resources */ = {isa = PBXBuildFile; fileRef = 41139363191D325100C4BCC1 /* placeholder_for_book.png */; };
+		41139367191E74BC00C4BCC1 /* UIButtonWithBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 41139366191E74BC00C4BCC1 /* UIButtonWithBorder.m */; };
+		4113936A191E76A300C4BCC1 /* DuoKanLoginButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41139369191E76A300C4BCC1 /* DuoKanLoginButtonViewController.m */; };
+		4113936D191E77D700C4BCC1 /* DuoKanLoginWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4113936C191E77D700C4BCC1 /* DuoKanLoginWebViewController.m */; };
+		41139370191E874000C4BCC1 /* DuoKanRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4113936F191E873F00C4BCC1 /* DuoKanRevealViewController.m */; };
+		41139373191E87B700C4BCC1 /* DuoKanMenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41139372191E87B700C4BCC1 /* DuoKanMenuTableViewController.m */; };
+		41139376191E94D500C4BCC1 /* DuoKanNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41139375191E94D500C4BCC1 /* DuoKanNavigationController.m */; };
+		41139378191E9B1600C4BCC1 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 41139377191E9B1600C4BCC1 /* menu.png */; };
+		4113937A191E9BFE00C4BCC1 /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41139379191E9BFE00C4BCC1 /* menu@2x.png */; };
 		417319EA191A8E51001E9160 /* DuoKanCoreDataUtilTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 417319E9191A8E51001E9160 /* DuoKanCoreDataUtilTest.m */; };
 		417319ED191AAB6C001E9160 /* Record+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 417319EC191AAB6C001E9160 /* Record+Utility.m */; };
 		417319F0191BE107001E9160 /* UIImage+Functions.m in Sources */ = {isa = PBXBuildFile; fileRef = 417319EF191BE107001E9160 /* UIImage+Functions.m */; };
@@ -62,6 +70,20 @@
 
 /* Begin PBXFileReference section */
 		41139363191D325100C4BCC1 /* placeholder_for_book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder_for_book.png; sourceTree = "<group>"; };
+		41139365191E74BC00C4BCC1 /* UIButtonWithBorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIButtonWithBorder.h; sourceTree = "<group>"; };
+		41139366191E74BC00C4BCC1 /* UIButtonWithBorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIButtonWithBorder.m; sourceTree = "<group>"; };
+		41139368191E76A300C4BCC1 /* DuoKanLoginButtonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuoKanLoginButtonViewController.h; sourceTree = "<group>"; };
+		41139369191E76A300C4BCC1 /* DuoKanLoginButtonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuoKanLoginButtonViewController.m; sourceTree = "<group>"; };
+		4113936B191E77D700C4BCC1 /* DuoKanLoginWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuoKanLoginWebViewController.h; sourceTree = "<group>"; };
+		4113936C191E77D700C4BCC1 /* DuoKanLoginWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuoKanLoginWebViewController.m; sourceTree = "<group>"; };
+		4113936E191E873F00C4BCC1 /* DuoKanRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuoKanRevealViewController.h; sourceTree = "<group>"; };
+		4113936F191E873F00C4BCC1 /* DuoKanRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuoKanRevealViewController.m; sourceTree = "<group>"; };
+		41139371191E87B700C4BCC1 /* DuoKanMenuTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuoKanMenuTableViewController.h; sourceTree = "<group>"; };
+		41139372191E87B700C4BCC1 /* DuoKanMenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuoKanMenuTableViewController.m; sourceTree = "<group>"; };
+		41139374191E94D500C4BCC1 /* DuoKanNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuoKanNavigationController.h; sourceTree = "<group>"; };
+		41139375191E94D500C4BCC1 /* DuoKanNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuoKanNavigationController.m; sourceTree = "<group>"; };
+		41139377191E9B1600C4BCC1 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		41139379191E9BFE00C4BCC1 /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
 		417319E9191A8E51001E9160 /* DuoKanCoreDataUtilTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DuoKanCoreDataUtilTest.m; path = DuokanLimitFreeMobileTests/DuoKanCoreDataUtilTest.m; sourceTree = SOURCE_ROOT; };
 		417319EB191AAB6C001E9160 /* Record+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Record+Utility.h"; sourceTree = "<group>"; };
 		417319EC191AAB6C001E9160 /* Record+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Record+Utility.m"; sourceTree = "<group>"; };
@@ -213,8 +235,12 @@
 				41D409711904180600DE9A98 /* DuoKanHistoryViewController.m */,
 				41D409631903B23900DE9A98 /* DuoKanLocalStorage.h */,
 				41D409641903B23900DE9A98 /* DuoKanLocalStorage.m */,
+				41139368191E76A300C4BCC1 /* DuoKanLoginButtonViewController.h */,
+				41139369191E76A300C4BCC1 /* DuoKanLoginButtonViewController.m */,
 				41D409601902C7FA00DE9A98 /* DuoKanLoginViewController.h */,
 				41D409611902C7FA00DE9A98 /* DuoKanLoginViewController.m */,
+				4113936B191E77D700C4BCC1 /* DuoKanLoginWebViewController.h */,
+				4113936C191E77D700C4BCC1 /* DuoKanLoginWebViewController.m */,
 				41D409581902C08500DE9A98 /* DuoKanMobileNotification.h */,
 				41D409591902C08500DE9A98 /* DuoKanMobileNotification.m */,
 				41D4097919080B8800DE9A98 /* DuokanModel.xcdatamodeld */,
@@ -235,8 +261,16 @@
 				41D4097C1908102600DE9A98 /* Record.h */,
 				41D4097D1908102600DE9A98 /* Record.m */,
 				41D409141902BD1000DE9A98 /* Supporting Files */,
+				41139365191E74BC00C4BCC1 /* UIButtonWithBorder.h */,
+				41139366191E74BC00C4BCC1 /* UIButtonWithBorder.m */,
 				417319EE191BE107001E9160 /* UIImage+Functions.h */,
 				417319EF191BE107001E9160 /* UIImage+Functions.m */,
+				4113936E191E873F00C4BCC1 /* DuoKanRevealViewController.h */,
+				4113936F191E873F00C4BCC1 /* DuoKanRevealViewController.m */,
+				41139371191E87B700C4BCC1 /* DuoKanMenuTableViewController.h */,
+				41139372191E87B700C4BCC1 /* DuoKanMenuTableViewController.m */,
+				41139374191E94D500C4BCC1 /* DuoKanNavigationController.h */,
+				41139375191E94D500C4BCC1 /* DuoKanNavigationController.m */,
 			);
 			path = DuokanLimitFreeMobile;
 			sourceTree = "<group>";
@@ -244,6 +278,8 @@
 		41D409141902BD1000DE9A98 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				41139377191E9B1600C4BCC1 /* menu.png */,
+				41139379191E9BFE00C4BCC1 /* menu@2x.png */,
 				41139363191D325100C4BCC1 /* placeholder_for_book.png */,
 				41D409151902BD1000DE9A98 /* DuokanLimitFreeMobile-Info.plist */,
 				41D409161902BD1000DE9A98 /* InfoPlist.strings */,
@@ -370,6 +406,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4113937A191E9BFE00C4BCC1 /* menu@2x.png in Resources */,
+				41139378191E9B1600C4BCC1 /* menu.png in Resources */,
 				41D409291902BD1000DE9A98 /* Images.xcassets in Resources */,
 				41D409181902BD1000DE9A98 /* InfoPlist.strings in Resources */,
 				41139364191D325100C4BCC1 /* placeholder_for_book.png in Resources */,
@@ -426,7 +464,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				41D409811908102700DE9A98 /* Book.m in Sources */,
+				41139376191E94D500C4BCC1 /* DuoKanNavigationController.m in Sources */,
 				417319ED191AAB6C001E9160 /* Record+Utility.m in Sources */,
+				41139373191E87B700C4BCC1 /* DuoKanMenuTableViewController.m in Sources */,
 				41D409621902C7FA00DE9A98 /* DuoKanLoginViewController.m in Sources */,
 				41D4096F190412AF00DE9A98 /* DuoKanDebugViewController.m in Sources */,
 				41D409271902BD1000DE9A98 /* DuoKanSecondViewController.m in Sources */,
@@ -442,13 +482,17 @@
 				41D4094F1902BE1200DE9A98 /* DuoKanSessionInfo.m in Sources */,
 				41D409751905620B00DE9A98 /* DuoKanDebug.m in Sources */,
 				41D4094E1902BE1200DE9A98 /* Book+Utility.m in Sources */,
+				4113936D191E77D700C4BCC1 /* DuoKanLoginWebViewController.m in Sources */,
 				41D409721904180600DE9A98 /* DuoKanHistoryViewController.m in Sources */,
 				41D409651903B23900DE9A98 /* DuoKanLocalStorage.m in Sources */,
 				41D4097E1908102600DE9A98 /* Record.m in Sources */,
+				4113936A191E76A300C4BCC1 /* DuoKanLoginButtonViewController.m in Sources */,
 				41D4094D1902BE1200DE9A98 /* DuoKanApi.m in Sources */,
 				41D4097B19080B8800DE9A98 /* DuokanModel.xcdatamodeld in Sources */,
+				41139367191E74BC00C4BCC1 /* UIButtonWithBorder.m in Sources */,
 				41D409501902BE1200DE9A98 /* DuoKanVariables.m in Sources */,
 				41D4095F1902C0C400DE9A98 /* DuoKanDelegate.m in Sources */,
+				41139370191E874000C4BCC1 /* DuoKanRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

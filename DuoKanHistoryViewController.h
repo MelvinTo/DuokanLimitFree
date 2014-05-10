@@ -11,8 +11,7 @@
 
 @interface DuoKanHistoryViewController : UITableViewController <NSFetchedResultsControllerDelegate> {
 //    IBOutlet UITableView* _tableView;
-    
-    
+    IBOutlet UIBarButtonItem* _menuButton;
 }
 
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;

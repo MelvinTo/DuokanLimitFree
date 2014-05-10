@@ -14,6 +14,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-SWRevealViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-YHRoundBorderedButton.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-hpple.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2BE2111191FE45159F99B42B</key>
+		<key>29F9004A4C8349788E2FBCDE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>50AF1CAB8681430981ECBFFE</key>
+		<key>4774EF154E7B482A9CAA951B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D41D3E32A557407C8CBEABE9</key>
+		<key>507F24D71724467F9C73341E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E8FF497287214BD398A2B773</key>
+		<key>A6B08F6973324D0DB6F59BED</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AF720C67E69D432F9F89E910</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B35E8F1DFA414432855C5221</key>
 		<dict>
 			<key>primary</key>
 			<true/>
