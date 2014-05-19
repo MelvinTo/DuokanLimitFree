@@ -7,6 +7,7 @@
 //
 
 #import "DuoKanWebViewController.h"
+#import "SWRevealViewController.h"
 
 @implementation DuoKanWebViewController
 
@@ -16,6 +17,9 @@
     NSString* url = record.book.url;
     NSLog(@"Loading web page: %@", url);
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
+    
+    // Set the gesture
+    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
 }
 
 - (IBAction)action:(id)sender {

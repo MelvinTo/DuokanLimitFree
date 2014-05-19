@@ -20,6 +20,8 @@
 		417319ED191AAB6C001E9160 /* Record+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 417319EC191AAB6C001E9160 /* Record+Utility.m */; };
 		417319F0191BE107001E9160 /* UIImage+Functions.m in Sources */ = {isa = PBXBuildFile; fileRef = 417319EF191BE107001E9160 /* UIImage+Functions.m */; };
 		417319F3191BEA7E001E9160 /* DuoKanWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 417319F2191BEA7E001E9160 /* DuoKanWebViewController.m */; };
+		41732FCD191FD00100CA6C92 /* rating_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 41732FCC191FD00100CA6C92 /* rating_0.png */; };
+		41732FD0191FD1EA00CA6C92 /* DuoKanSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41732FCF191FD1EA00CA6C92 /* DuoKanSettingsViewController.m */; };
 		41D4090E1902BD1000DE9A98 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D4090D1902BD1000DE9A98 /* Foundation.framework */; };
 		41D409101902BD1000DE9A98 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D4090F1902BD1000DE9A98 /* CoreGraphics.framework */; };
 		41D409121902BD1000DE9A98 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D409111902BD1000DE9A98 /* UIKit.framework */; };
@@ -91,6 +93,9 @@
 		417319EF191BE107001E9160 /* UIImage+Functions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Functions.m"; sourceTree = "<group>"; };
 		417319F1191BEA7E001E9160 /* DuoKanWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuoKanWebViewController.h; sourceTree = "<group>"; };
 		417319F2191BEA7E001E9160 /* DuoKanWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuoKanWebViewController.m; sourceTree = "<group>"; };
+		41732FCC191FD00100CA6C92 /* rating_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rating_0.png; sourceTree = "<group>"; };
+		41732FCE191FD1EA00CA6C92 /* DuoKanSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuoKanSettingsViewController.h; sourceTree = "<group>"; };
+		41732FCF191FD1EA00CA6C92 /* DuoKanSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuoKanSettingsViewController.m; sourceTree = "<group>"; };
 		41D4090A1902BD1000DE9A98 /* DuokanLimitFreeMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DuokanLimitFreeMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41D4090D1902BD1000DE9A98 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		41D4090F1902BD1000DE9A98 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -271,6 +276,8 @@
 				41139372191E87B700C4BCC1 /* DuoKanMenuTableViewController.m */,
 				41139374191E94D500C4BCC1 /* DuoKanNavigationController.h */,
 				41139375191E94D500C4BCC1 /* DuoKanNavigationController.m */,
+				41732FCE191FD1EA00CA6C92 /* DuoKanSettingsViewController.h */,
+				41732FCF191FD1EA00CA6C92 /* DuoKanSettingsViewController.m */,
 			);
 			path = DuokanLimitFreeMobile;
 			sourceTree = "<group>";
@@ -278,6 +285,7 @@
 		41D409141902BD1000DE9A98 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				41732FCC191FD00100CA6C92 /* rating_0.png */,
 				41139377191E9B1600C4BCC1 /* menu.png */,
 				41139379191E9BFE00C4BCC1 /* menu@2x.png */,
 				41139363191D325100C4BCC1 /* placeholder_for_book.png */,
@@ -412,6 +420,7 @@
 				41D409181902BD1000DE9A98 /* InfoPlist.strings in Resources */,
 				41139364191D325100C4BCC1 /* placeholder_for_book.png in Resources */,
 				41D409211902BD1000DE9A98 /* Main.storyboard in Resources */,
+				41732FCD191FD00100CA6C92 /* rating_0.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,6 +477,7 @@
 				417319ED191AAB6C001E9160 /* Record+Utility.m in Sources */,
 				41139373191E87B700C4BCC1 /* DuoKanMenuTableViewController.m in Sources */,
 				41D409621902C7FA00DE9A98 /* DuoKanLoginViewController.m in Sources */,
+				41732FD0191FD1EA00CA6C92 /* DuoKanSettingsViewController.m in Sources */,
 				41D4096F190412AF00DE9A98 /* DuoKanDebugViewController.m in Sources */,
 				41D409271902BD1000DE9A98 /* DuoKanSecondViewController.m in Sources */,
 				41D4091E1902BD1000DE9A98 /* DuoKanAppDelegate.m in Sources */,

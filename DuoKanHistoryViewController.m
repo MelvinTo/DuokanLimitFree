@@ -55,6 +55,41 @@
     return self;
 }
 
+- (bool) isTapGestureAdded {
+    NSArray* list = [self.view gestureRecognizers];
+    for (UIGestureRecognizer* recognizer in list) {
+        if ([recognizer isKindOfClass:[UITapGestureRecognizer class]]) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+- (UITapGestureRecognizer*)getTapGesture {
+    NSArray* list = [self.view gestureRecognizers];
+    for (UIGestureRecognizer* recognizer in list) {
+        if ([recognizer isKindOfClass:[UITapGestureRecognizer class]]) {
+            return (UITapGestureRecognizer*)recognizer;
+        }
+    }
+    return nil;
+}
+
+- (void) toggleTap:(id) sender {
+    [self.revealViewController revealToggle:self];
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    if ([gestureRecognizer isKindOfClass:[UITapGestureRecognizer class]]) {
+        if (self.revealViewController.frontViewPosition == FrontViewPositionRight) {
+            return YES;
+        }
+    } else {
+        return YES;
+    }
+    return NO;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -65,9 +100,14 @@
     
     // Set the gesture
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+
+    UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc]
+        initWithTarget:self action:@selector(toggleTap:)];
+    [tap setDelegate:self];
+    [self.view addGestureRecognizer: tap];
     
     NSLog(@"history view is loaded");
-    self.title = @"抢书历史";
+    self.title = @"抢书记录";
     self.managedObjectContext = [[DuoKanCoreDataUtil sharedUtility] managedObjectContext];
 
     NSError *error;

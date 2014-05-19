@@ -7,6 +7,7 @@
 //
 
 #import "DuoKanLoginWebViewController.h"
+#import "SWRevealViewController.h"
 
 static NSString* loginURL = @"https://account.xiaomi.com/pass/serviceLogin?callback=http%3A%2F%2Flogin.dushu.xiaomi.com%2Fdk_id%2Fapi%2Fcheckin%3Ffollowup%3Dhttp%253A%252F%252Fwww.duokan.com%252Fm%252F%253Fapp_id%253Dweb%26sign%3DNGY2MTUyNTM2NWVmNWQzOTA5NmZlZGYwYzM2NDEzZmM%3D&sid=dushu&display=mobile";
 
@@ -55,12 +56,31 @@ static NSString* loginURL = @"https://account.xiaomi.com/pass/serviceLogin?callb
     NSLog(@"Start loading page: %@", urlString);
     if ([urlString isEqualToString:@"http://www.duokan.com/m/"]) {
         NSLog(@"login successfully!!");
+        [self performSegueWithIdentifier:@"history" sender:self];
         return NO;
     }
-//    if (request.URL.) {
-//        <#statements#>
-//    }
     return YES;
 }
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSLog(@"prepareForSegue is called");
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+    
+    
+    if ( [segue isKindOfClass: [SWRevealViewControllerSegue class]] ) {
+        SWRevealViewControllerSegue *swSegue = (SWRevealViewControllerSegue*) segue;
+        
+        swSegue.performBlock = ^(SWRevealViewControllerSegue* rvc_segue, UIViewController* svc, UIViewController* dvc) {
+            
+            UINavigationController* navController = (UINavigationController*)self.revealViewController.frontViewController;
+            [navController setViewControllers: @[dvc] animated: NO ];
+            [self.revealViewController setFrontViewPosition: FrontViewPositionLeft animated: YES];
+        };
+        
+    }
+}
+
 
 @end

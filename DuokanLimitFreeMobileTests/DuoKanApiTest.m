@@ -363,4 +363,14 @@ static NSString* password = @"vMm7opDLRECL7c";
     while (!self.requestComplete && [theRL runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]]);
 }
 
+- (void) testCookieDelete {
+    NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (NSHTTPCookie *each in cookieStorage.cookies) {
+        if ([each.name isEqualToString:@"token"]
+            && [each.domain isEqualToString:@".duokan.com"]) {
+            [cookieStorage deleteCookie:each];
+        }
+    }
+}
+
 @end

@@ -50,5 +50,6 @@
 - (void) order: (Book*) book inSession: (DuoKanSessionInfo*) session withDelegate: (id<DuoKanApiDelegate>) delegate;
 - (NSNumber*) getRating: (NSString*) htmlString;
 - (void) setDatabaseAPI: (id<DuokanDatabaseAPI>) api;
+- (void) logout;
 
 @end

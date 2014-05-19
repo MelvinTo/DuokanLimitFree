@@ -9,6 +9,7 @@
 #import "DuoKanMenuTableViewController.h"
 #import "SWRevealViewController.h"
 #import "DuoKanHistoryViewController.h"
+#import "DuoKanApi.h"
 
 @interface DuoKanMenuTableViewController ()
 
@@ -39,7 +40,7 @@
     self.tableView.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
     self.tableView.separatorColor = [UIColor colorWithWhite:0.15f alpha:0.2f];
     
-    _menuItems = @[@"title", @"history", @"logout"];
+    _menuItems = @[@"title", @"history", @"settings", @"logout"];
 
 }
 
@@ -120,6 +121,12 @@
 //    if ([segue.identifier isEqualToString:@"history"]) {
 //        DuoKanHistoryViewController* historyController = (DuoKanHistoryViewController*)segue.destinationViewController;
 //    }
+    NSString* menu = [_menuItems objectAtIndex:indexPath.row];
+    if ([menu isEqualToString:@"logout"]) {
+        DuoKanApi* api = [[DuoKanApi alloc] init];
+        [api logout];
+        destViewController.title = @"多看抢拍器";
+    }
     
     if ( [segue isKindOfClass: [SWRevealViewControllerSegue class]] ) {
         SWRevealViewControllerSegue *swSegue = (SWRevealViewControllerSegue*) segue;
@@ -128,6 +135,9 @@
             
             UINavigationController* navController = (UINavigationController*)self.revealViewController.frontViewController;
             [navController setViewControllers: @[dvc] animated: NO ];
+            
+//            [dvc.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:dvc action:@selector(toggleReveal:)]];
+            
             [self.revealViewController setFrontViewPosition: FrontViewPositionLeft animated: YES];
         };
         

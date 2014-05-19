@@ -50,6 +50,17 @@
     
 }
 
+- (void) logout {
+    NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (NSHTTPCookie *each in cookieStorage.cookies) {
+        if ([each.name isEqualToString:@"token"]
+            && [each.domain isEqualToString:@".duokan.com"]) {
+            [cookieStorage deleteCookie:each];
+        }
+    }
+    
+}
+
 - (void) getMainPageWithDelegate: (id <DuoKanApiDelegate> ) delegate {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     

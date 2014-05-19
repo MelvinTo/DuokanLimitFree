@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
-@interface DuoKanHistoryViewController : UITableViewController <NSFetchedResultsControllerDelegate> {
+@interface DuoKanHistoryViewController : UITableViewController <NSFetchedResultsControllerDelegate, UIGestureRecognizerDelegate> {
 //    IBOutlet UITableView* _tableView;
     IBOutlet UIBarButtonItem* _menuButton;
 }
 
 @property (nonatomic,strong) NSManagedObjectContext* managedObjectContext;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+
+- (void)toggleTap:(id)sender;
 
 @end
