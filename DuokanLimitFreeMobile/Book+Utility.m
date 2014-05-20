@@ -29,6 +29,10 @@
     return [NSString stringWithFormat:@"duokan-reader://store/book/%@", self.bookID];
 }
 
+- (BOOL) isDuokanAppInstalled {
+    return [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"duokan-reader://"]];
+}
+
 - (NSString*) ratingString {
     switch (self.rating.intValue) {
         case 0:

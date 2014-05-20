@@ -19,7 +19,12 @@
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
     
     // Set the gesture
-    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+//    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    
+}
+
+-(void)handleSwipeGesture:(UIGestureRecognizer *) sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)action:(id)sender {

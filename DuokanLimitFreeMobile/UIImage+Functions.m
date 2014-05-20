@@ -43,12 +43,12 @@
 {
     if(self.size.width>self.size.height)
     {
-        NSLog(@"LandScape");
+//        NSLog(@"LandScape");
         size1=CGSizeMake((self.size.width/self.size.height)*size1.height,size1.height);
     }
     else
     {
-        NSLog(@"Potrait");
+//        NSLog(@"Potrait");
         size1=CGSizeMake(size1.width,(self.size.height/self.size.width)*size1.width);
     }
     

@@ -15,5 +15,6 @@
 - (NSString*) ratingString;
 - (NSString*) thumbCover;
 - (NSString*) duokanAppURL;
+- (BOOL) isDuokanAppInstalled;
 
 @end

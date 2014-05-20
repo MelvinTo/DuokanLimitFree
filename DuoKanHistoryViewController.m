@@ -12,6 +12,7 @@
 #import "DuoKanWebViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "SWRevealViewController.h"
+#import "DuoKanRecordTableViewCell.h"
 
 @interface NSDate (DateDiff)
 - (NSString*) diffTimeWithNow;
@@ -83,11 +84,12 @@
     if ([gestureRecognizer isKindOfClass:[UITapGestureRecognizer class]]) {
         if (self.revealViewController.frontViewPosition == FrontViewPositionRight) {
             return YES;
+        } else {
+            return NO;
         }
     } else {
         return YES;
     }
-    return NO;
 }
 
 - (void)viewDidLoad {
@@ -98,7 +100,11 @@
     _menuButton.target = self.revealViewController;
     _menuButton.action = @selector(revealToggle:);
     
+    self.navigationItem.backBarButtonItem = _menuButton;
+    
     // Set the gesture
+    NSLog(@"viewDidLoad for %@", self.class);
+    
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
 
     UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc]
@@ -114,8 +120,21 @@
 	if (![[self fetchedResultsController] performFetch:&error]) {
 		// Update to handle the error appropriately.
 		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-		exit(-1);  // Fail
 	}
+    
+    self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
+}
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    if ([gestureRecognizer isKindOfClass:[UISwipeGestureRecognizer class]]) {
+        if (self.navigationController.viewControllers.count == 1) { //关闭主界面的右滑返回
+            return NO;
+        } else {
+            return YES;
+        }
+    }
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -175,7 +194,7 @@
     [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell = [[DuoKanRecordTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
     // Set up the cell...
@@ -186,43 +205,21 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     Record *record = [_fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = record.book.title;
-    
-//    SDWebImageDownloader* downloader = [[SDWebImageDownloader alloc] init];
-//    [downloader downloadImageWithURL:[NSURL URLWithString:[record.book thumbCover]] options:SDWebImageDownloaderHighPriority progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-//        // do nothing
-//    } completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
-//        image = [image scaleProportionalToSize:CGSizeMake(192,256)];
-//        image = [UIImage imageWithCGImage:image.CGImage scale:2 orientation:image.imageOrientation];
-//        NSLog(@"image size is : %f, %f", image.size.width, image.size.height);
-//        [cell.imageView setImage:image];
-//        [cell setNeedsLayout];
-//    }];
-//    UIImage* image = [UIImage imageWithData:
-//                      [NSData dataWithContentsOfURL:
-//                       [NSURL URLWithString:[record.book thumbCover]]]];
-//    image=[image scaleProportionalToSize:CGSizeMake(192, 256)];
-//    
-//    image = [UIImage imageWithCGImage:image.CGImage scale:2 orientation:image.imageOrientation];
-//
-//                      
-//    NSLog(@"image size is : %f, %f", image.size.width, image.size.height);
-//    
-//    UIImageView* imageView = [[UIImageView alloc] initWithImage:image];
-//    
-//    NSLog(@"imageView size is : %f, %f", imageView.frame.size.width, imageView.frame.size.height);
-//    [cell.imageView setImageWithURL:[NSURL URLWithString:[record.book thumbCover]]
-//                   placeholderImage:[UIImage imageNamed:@"placeholder_for_book.png"]];
-    [cell.imageView setImageWithURL:[NSURL URLWithString:[record.book thumbCover]]
+    DuoKanRecordTableViewCell* recordCell = (DuoKanRecordTableViewCell*)cell;
+    recordCell.bookTitle.text = record.book.title;
+    recordCell.price.text = [NSString stringWithFormat:@"原价%@元", record.book.oldPrice];
+    recordCell.record = record;
+    if (![record.book isDuokanAppInstalled]) {
+        recordCell.readButton.enabled = NO;
+    } else {
+        recordCell.readButton.enabled = YES;
+    }
+    [recordCell.cover setImageWithURL:[NSURL URLWithString:[record.book thumbCover]]
                    placeholderImage:[UIImage imageNamed:@"placeholder_for_book.png"]
                           completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-        image = [image scaleProportionalToSize:CGSizeMake(192,256)];
-        image = [UIImage imageWithCGImage:image.CGImage scale:2 orientation:image.imageOrientation];
-    }];
-//    cell.accessoryView = imageView;
-    
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@, 原价%@元,购买于%@",
-                                 [record.book ratingString], record.book.oldPrice, [record.orderTime diffTimeWithNow]];
+                              image = [image scaleProportionalToSize:CGSizeMake(192,256)];
+                              image = [UIImage imageWithCGImage:image.CGImage scale:2 orientation:image.imageOrientation];
+                          }];
 }
 
 
@@ -289,20 +286,28 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 140.0;
+    return 168.0;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"cell %@ is selected", indexPath);
     Record *record = [_fetchedResultsController objectAtIndexPath:indexPath];
     [self performSegueWithIdentifier:@"web" sender:record];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"web"]) {
-        NSLog(@"call segue web");
+    if ([[segue identifier] isEqualToString:@"web"] && [sender isKindOfClass:[Record class]]) {
+        NSLog(@"call segue web from %@", sender);
         DuoKanWebViewController* controller = [segue destinationViewController];
         controller.record = (Record*) sender;
     }
+}
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    if ([identifier isEqualToString:@"web"] && ! [sender isKindOfClass:[Record class]]) {
+        return NO;
+    }
+    return YES;
 }
 
 @end
