@@ -66,6 +66,12 @@
 #define COCOAPODS_VERSION_MINOR_SWRevealViewController 0
 #define COCOAPODS_VERSION_PATCH_SWRevealViewController 0
 
+// SWTableViewCell
+#define COCOAPODS_POD_AVAILABLE_SWTableViewCell
+#define COCOAPODS_VERSION_MAJOR_SWTableViewCell 0
+#define COCOAPODS_VERSION_MINOR_SWTableViewCell 3
+#define COCOAPODS_VERSION_PATCH_SWTableViewCell 0
+
 // YHRoundBorderedButton
 #define COCOAPODS_POD_AVAILABLE_YHRoundBorderedButton
 #define COCOAPODS_VERSION_MAJOR_YHRoundBorderedButton 0

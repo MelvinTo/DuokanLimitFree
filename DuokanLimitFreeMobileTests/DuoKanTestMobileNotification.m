@@ -29,7 +29,7 @@
 }
 
 - (void)testNotifyBookOrdered {
-    DuoKanCoreDataUtil* util = [[DuoKanCoreDataUtil alloc] init];
+    DuoKanCoreDataUtil* util = [DuoKanCoreDataUtil sharedUtility];
     
     Book* book = [util createNewBook];
     book.title = @"三国演义";

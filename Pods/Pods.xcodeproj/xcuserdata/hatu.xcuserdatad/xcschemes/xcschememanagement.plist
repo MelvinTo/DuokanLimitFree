@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-SWTableViewCell.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-YHRoundBorderedButton.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,32 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>29F9004A4C8349788E2FBCDE</key>
+		<key>03E792D54BDB46E494860CFE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4774EF154E7B482A9CAA951B</key>
+		<key>1C7563EAE9FD442EA544CF5A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>507F24D71724467F9C73341E</key>
+		<key>42E85A892B06468782FB7508</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A6B08F6973324D0DB6F59BED</key>
+		<key>5AC0311622934F2E919F8674</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AF720C67E69D432F9F89E910</key>
+		<key>93BEBAF30A0E40A5B8F91F6F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B35E8F1DFA414432855C5221</key>
+		<key>A82F60B49B3F4A9C9C3ED558</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AEBB2E2228E04189A8DDF0DF</key>
 		<dict>
 			<key>primary</key>
 			<true/>

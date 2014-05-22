@@ -17,5 +17,7 @@ extern NSString* const duokanLoginQS;
 extern NSString* const duokanLoginSign;
 extern NSString* const duokanCheckURL;
 extern NSString* const duokanOrderURL;
+extern NSString* const duokanHideURL;
+extern NSString* const duokanRevealURL;
 
 #endif

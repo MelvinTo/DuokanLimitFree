@@ -26,16 +26,16 @@
     if(ti < 1) {
         return @"never";
     } else 	if (ti < 60) {
-        return @"less than a minute ago";
+        return @"刚刚";
     } else if (ti < 3600) {
         int diff = round(ti / 60);
-        return [NSString stringWithFormat:@"%d minutes ago", diff];
+        return [NSString stringWithFormat:@"%d分钟前", diff];
     } else if (ti < 86400) {
         int diff = round(ti / 60 / 60);
-        return[NSString stringWithFormat:@"%d hours ago", diff];
+        return[NSString stringWithFormat:@"%d小时前", diff];
     } else if (ti < 2629743) {
         int diff = round(ti / 60 / 60 / 24);
-        return[NSString stringWithFormat:@"%d days ago", diff];
+        return[NSString stringWithFormat:@"%d天前", diff];
     } else {
         return @"never";
     }	
@@ -124,6 +124,29 @@
     
     self.navigationController.interactivePopGestureRecognizer.enabled = YES;
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
+    
+    [self.tableView setSeparatorColor:[UIColor clearColor]];
+    
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refresh)
+             forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = refreshControl;
+}
+
+- (void)refresh {
+    DuoKanDelegate* delegate = [[DuoKanDelegate alloc] init];
+    [delegate setCallback:self];
+    [delegate run];
+}
+
+- (void)DuokanDelegate:(id)delegate failure:(Book *)book withError:(NSError *)err {
+    NSLog(@"DuokanDelegate failure is called");
+    [self.refreshControl endRefreshing];
+}
+
+- (void)DuokanDelegate:(id)delegate success:(Book *)book {
+    NSLog(@"DuokanDelegate success is called");
+    [self.refreshControl endRefreshing];
 }
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
@@ -162,6 +185,9 @@
     
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Record"];
     fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"orderTime" ascending:NO]];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"book.hide == %@ or book.hide == nil", [NSNumber numberWithBool:NO]];
+    [fetchRequest setPredicate:predicate];
+
     
     NSLog(@"managedObjectContext for history: %@", [self managedObjectContext]);
     NSFetchedResultsController *theFetchedResultsController =
@@ -184,18 +210,23 @@
     id  sectionInfo =
     [[_fetchedResultsController sections] objectAtIndex:section];
     NSUInteger count =  [sectionInfo numberOfObjects];
+    NSLog(@"numberOfRowsInSection: %ld", count);
     return count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {    
     static NSString *CellIdentifier = @"Record";
     
-    UITableViewCell *cell =
+    DuoKanRecordTableViewCell *cell =
     [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil) {
         cell = [[DuoKanRecordTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
+    
+    cell.leftUtilityButtons = [self leftButtons];
+    cell.rightUtilityButtons = [self rightButtons];
+    cell.delegate = self;
     
     // Set up the cell...
     [self configureCell:cell atIndexPath:indexPath];
@@ -203,23 +234,9 @@
     return cell;
 }
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+- (void)configureCell:(DuoKanRecordTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     Record *record = [_fetchedResultsController objectAtIndexPath:indexPath];
-    DuoKanRecordTableViewCell* recordCell = (DuoKanRecordTableViewCell*)cell;
-    recordCell.bookTitle.text = record.book.title;
-    recordCell.price.text = [NSString stringWithFormat:@"原价%@元", record.book.oldPrice];
-    recordCell.record = record;
-    if (![record.book isDuokanAppInstalled]) {
-        recordCell.readButton.enabled = NO;
-    } else {
-        recordCell.readButton.enabled = YES;
-    }
-    [recordCell.cover setImageWithURL:[NSURL URLWithString:[record.book thumbCover]]
-                   placeholderImage:[UIImage imageNamed:@"placeholder_for_book.png"]
-                          completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                              image = [image scaleProportionalToSize:CGSizeMake(192,256)];
-                              image = [UIImage imageWithCGImage:image.CGImage scale:2 orientation:image.imageOrientation];
-                          }];
+    [cell applyRecord:record];
 }
 
 
@@ -308,6 +325,47 @@
         return NO;
     }
     return YES;
+}
+
+-(void)swipeableTableViewCell:(DuoKanRecordTableViewCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index {
+    
+}
+
+- (void)swipeableTableViewCell:(DuoKanRecordTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
+    if (index == 0) {
+        NSLog(@"隐藏按钮被点击");
+        DuoKanApi* api = [[DuoKanApi alloc] init];
+        [api hide:cell.record.book inSession:[DuoKanSessionInfo getSessionFromCookie] withDelegate:self userInfo:@{@"cell":cell}];
+    }
+}
+
+- (void)hideResult:(Book *)book withError:(NSError *)err userInfo:(NSDictionary *)info {
+    if (err == nil) {
+        NSLog(@"Book %@ is successfully hided", book);
+        book.hide = [NSNumber numberWithBool:YES];
+        [[DuoKanCoreDataUtil sharedUtility] deleteRecord:book.record];
+        [[DuoKanCoreDataUtil sharedUtility] save];
+        NSLog(@"number of records: %ld", [[[DuoKanCoreDataUtil sharedUtility] getAllVisibleRecords] count]);
+    }
+}
+
+- (NSArray *)rightButtons
+{
+    NSMutableArray *rightUtilityButtons = [NSMutableArray new];
+//    [rightUtilityButtons sw_addUtilityButtonWithColor:
+//     [UIColor colorWithRed:0.78f green:0.78f blue:0.8f alpha:1.0]
+//                                                title:@"More"];
+    [rightUtilityButtons sw_addUtilityButtonWithColor:
+     [UIColor colorWithRed:1.0f green:0.231f blue:0.188 alpha:1.0f]
+                                                title:@"删除"];
+    
+    return rightUtilityButtons;
+}
+
+- (NSArray *)leftButtons
+{
+    NSMutableArray *leftUtilityButtons = [NSMutableArray new];
+    return leftUtilityButtons;
 }
 
 @end

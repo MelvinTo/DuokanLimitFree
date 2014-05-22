@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Record.h"
+#import <SWTableViewCell.h>
 
-@interface DuoKanRecordTableViewCell : UITableViewCell
+@interface DuoKanRecordTableViewCell : SWTableViewCell
 
 @property (nonatomic, weak) IBOutlet UILabel* bookTitle;
 @property (nonatomic, weak) IBOutlet UILabel* price;
@@ -20,9 +21,11 @@
 @property (nonatomic, weak) IBOutlet UIImageView* rate4;
 @property (nonatomic, weak) IBOutlet UIImageView* rate5;
 @property (nonatomic, weak) IBOutlet UIButton* readButton;
+@property (nonatomic, weak) IBOutlet UILabel* orderTime;
 @property (nonatomic, weak) Record* record;
 
 - (IBAction) startReading:(id)sender;
 - (void) disableReadButton;
+- (void) applyRecord: (Record*) record;
 
 @end

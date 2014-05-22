@@ -13,6 +13,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    DuoKanDelegate* delegate = [self getDuokanDelegate];
+    [delegate setCallback:nil];
+    [delegate run];
     return YES;
 }
 

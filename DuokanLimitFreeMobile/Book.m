@@ -2,7 +2,7 @@
 //  Book.m
 //  DuokanLimitFreeMobile
 //
-//  Created by Melvin Tu on 14-4-23.
+//  Created by Melvin Tu on 14-5-21.
 //  Copyright (c) 2014年 Melvin Tu. All rights reserved.
 //
 
@@ -12,14 +12,15 @@
 
 @implementation Book
 
-@dynamic bookID;
-@dynamic title;
-@dynamic price;
-@dynamic oldPrice;
-@dynamic cover;
-@dynamic url;
 @dynamic author;
+@dynamic bookID;
+@dynamic cover;
+@dynamic oldPrice;
+@dynamic price;
 @dynamic rating;
+@dynamic title;
+@dynamic url;
+@dynamic hide;
 @dynamic record;
 
 @end

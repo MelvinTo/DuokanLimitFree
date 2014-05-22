@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import <SWTableViewCell.h>
+#import "DuoKanApi.h"
+#import "DuoKanDelegate.h"
 
-@interface DuoKanHistoryViewController : UITableViewController <NSFetchedResultsControllerDelegate, UIGestureRecognizerDelegate> {
+@interface DuoKanHistoryViewController : UITableViewController <NSFetchedResultsControllerDelegate, UIGestureRecognizerDelegate, SWTableViewCellDelegate, DuoKanApiDelegate, DuokanDelegateCallback> {
 //    IBOutlet UITableView* _tableView;
     IBOutlet UIBarButtonItem* _menuButton;
 }
@@ -18,5 +21,6 @@
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 
 - (void)toggleTap:(id)sender;
+- (void)refresh;
 
 @end

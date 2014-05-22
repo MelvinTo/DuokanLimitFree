@@ -23,6 +23,7 @@ PODS:
     - SDWebImage/Core
   - SDWebImage/Core (3.6)
   - SWRevealViewController (2.0.0)
+  - SWTableViewCell (0.3.0)
   - YHRoundBorderedButton (0.1.0)
 
 DEPENDENCIES:
@@ -30,13 +31,15 @@ DEPENDENCIES:
   - hpple (~> 0.2.0)
   - SDWebImage (~> 3.6)
   - SWRevealViewController
+  - SWTableViewCell (~> 0.3)
   - YHRoundBorderedButton
 
 SPEC CHECKSUMS:
-  AFNetworking: ae513199cca79e9d7af2708ccabe2ed075550c42
-  hpple: dde62f905f482bbec50186280d1a1be2c881241b
-  SDWebImage: 7eb273e54ca8a2e506ad9bd5e80c35b2a4d7c95e
-  SWRevealViewController: 1d01a647e48cd9c7ff856a6095251718810d0dc7
-  YHRoundBorderedButton: 6ebeeafa993eae6cd935e9e2eccd2f4442206875
+  AFNetworking: 47947303319594706f48a55185ea95a95159ab94
+  hpple: f4eb7c21a8db83ec264e5d614ec7509e10e5adec
+  SDWebImage: c6989652c1cdf27cbdf3f56957e2030f825af5bc
+  SWRevealViewController: 1ef1b6a87e67c65491a2c51219f64c678e725d91
+  SWTableViewCell: 1725f7607ce4c154264c18aeb78e4636b11b0b29
+  YHRoundBorderedButton: 6b22ec3f6b160fe6ca9ce8c2057ab1dfe0afb283
 
 COCOAPODS: 0.32.1

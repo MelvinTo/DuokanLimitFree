@@ -106,7 +106,7 @@ static NSString* password = @"vMm7opDLRECL7c";
     </script> ";
     
     DuoKanApi* api = [[DuoKanApi alloc] init];
-    [api setDatabaseAPI: [[DuoKanCoreDataUtil alloc] init]];
+    [api setDatabaseAPI: [DuoKanCoreDataUtil sharedUtility]];
     
     Book* book = [api parseBookHTML:html];
     XCTAssertNotNil(book, @"book object should not be nil");
@@ -129,7 +129,7 @@ static NSString* password = @"vMm7opDLRECL7c";
 
 - (void) testIsOrdered {
     DuoKanApi* api =  [[DuoKanApi alloc] init];
-    DuoKanCoreDataUtil* util = [[DuoKanCoreDataUtil alloc] init];
+    DuoKanCoreDataUtil* util = [DuoKanCoreDataUtil sharedUtility];
     [api setDatabaseAPI: util];
     
     Book* book = [util createNewBook];
@@ -156,7 +156,7 @@ static NSString* password = @"vMm7opDLRECL7c";
 
 - (void) testOrder {
     DuoKanApi* api =  [[DuoKanApi alloc] init];
-    DuoKanCoreDataUtil* util = [[DuoKanCoreDataUtil alloc] init];
+    DuoKanCoreDataUtil* util = [DuoKanCoreDataUtil sharedUtility];
     [api setDatabaseAPI: util];
     
     Book* book = [util createNewBook];
@@ -181,7 +181,7 @@ static NSString* password = @"vMm7opDLRECL7c";
 
 - (void) testGetFreeBooks {
     DuoKanApi* api =  [[DuoKanApi alloc] init];
-    DuoKanCoreDataUtil* util = [[DuoKanCoreDataUtil alloc] init];
+    DuoKanCoreDataUtil* util = [DuoKanCoreDataUtil sharedUtility];
     [api setDatabaseAPI: util];
     
     NSRunLoop *theRL = [NSRunLoop currentRunLoop];
@@ -334,9 +334,19 @@ static NSString* password = @"vMm7opDLRECL7c";
     XCTAssertEqualObjects(rating, [NSNumber numberWithInt:0], @"Rating should be 0");
 }
 
+- (void)hideResult:(Book *)book withError:(NSError *)err userInfo:(NSDictionary *)info {
+    self.requestComplete = YES;
+    XCTAssertNil(err, @"should not return error when hiding book");
+}
+
+- (void)revealResult:(Book *)book withError:(NSError *)err {
+    self.requestComplete = YES;
+    XCTAssertNil(err, @"should not return error when revealing book");
+}
+
 - (void) testOrderOneBook {
     DuoKanApi* api =  [[DuoKanApi alloc] init];
-    DuoKanCoreDataUtil* util = [[DuoKanCoreDataUtil alloc] init];
+    DuoKanCoreDataUtil* util = [DuoKanCoreDataUtil sharedUtility];
     [api setDatabaseAPI: util];
     
     NSRunLoop *theRL = [NSRunLoop currentRunLoop];
@@ -360,6 +370,16 @@ static NSString* password = @"vMm7opDLRECL7c";
     // order it if not ordered yet
     self.requestComplete = NO;
     [api order:_book inSession:[DuoKanSessionInfo getSessionFromCookie] withDelegate:self];
+    while (!self.requestComplete && [theRL runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]]);
+    
+    // hide if if not hided yet
+    self.requestComplete = NO;
+    [api hide:_book inSession:[DuoKanSessionInfo getSessionFromCookie] withDelegate:self userInfo:nil];
+    while (!self.requestComplete && [theRL runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]]);
+    
+    // reveal if if not revealed yet
+    self.requestComplete = NO;
+    [api reveal:_book inSession:[DuoKanSessionInfo getSessionFromCookie] withDelegate:self];
     while (!self.requestComplete && [theRL runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]]);
 }
 

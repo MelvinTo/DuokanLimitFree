@@ -45,11 +45,14 @@
     self.managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
     self.managedObjectContext.persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
     
+    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
+    						 [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
+    						 [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
     NSError* error;
     NSString* path = [self persistentStorePath];
     NSURL* storeLocation = [NSURL fileURLWithPath:path];
                             
-    [self.managedObjectContext.persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeLocation options:nil error:&error];
+    [self.managedObjectContext.persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeLocation options:options error:&error];
     
     if (error) {
         NSLog(@"error: %@", [error localizedDescription]);
@@ -185,6 +188,24 @@
         return fetchError;
     }
 
+}
+
+- (NSArray*) getAllVisibleRecords {
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"book.hide == NO"];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Record" inManagedObjectContext:managedObjectContext];
+    [request setPredicate:predicate];
+    [request setEntity:entity];
+    
+    NSError *fetchError = nil;
+    NSArray *fetchedBooks=[managedObjectContext executeFetchRequest:request error:&fetchError];
+    
+    if (!fetchError) {
+        return fetchedBooks;
+    } else {
+        return nil;
+    }
 }
 
 - (NSArray*) getAllRecords {

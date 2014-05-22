@@ -28,7 +28,7 @@
 }
 
 - (void)testCheckIfExists {
-    DuoKanCoreDataUtil* util = [[DuoKanCoreDataUtil alloc] init];
+    DuoKanCoreDataUtil* util = [DuoKanCoreDataUtil sharedUtility];
     Book* book = [util createNewBook];
     book.bookID = @"testBookID";
     NSError* error = [util save];

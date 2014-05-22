@@ -22,6 +22,7 @@
 
 @optional
 - (NSArray*)getAllRecords;
+- (NSArray*)getAllVisibleRecords;
 
 @end
 
@@ -34,6 +35,8 @@
 - (void) isOrdered: (BOOL) ordered forBook: (Book*) book withError: (NSError*) err;
 - (void) orderResult: (BOOL) ordered forBook: (Book*) book withError: (NSError*) err;
 - (void) mainPage: (NSData*)htmlData withError: (NSError*) err;
+- (void) hideResult: (Book*) book withError: (NSError*) err userInfo:(NSDictionary*) info;
+- (void) revealResult: (Book*) book withError: (NSError*) err;
 
 @end
 
@@ -48,6 +51,9 @@
 - (Book*) parseBookHTML: (NSString*) htmlString;
 - (void) isOrdered: (Book*) book inSession: (DuoKanSessionInfo*) session withDelegate: (id<DuoKanApiDelegate>) delegate;
 - (void) order: (Book*) book inSession: (DuoKanSessionInfo*) session withDelegate: (id<DuoKanApiDelegate>) delegate;
+- (void) hide: (Book*) book inSession: (DuoKanSessionInfo*) session withDelegate: (id<DuoKanApiDelegate>) delegate userInfo: (NSDictionary*) info;
+- (void) reveal: (Book*) book inSession: (DuoKanSessionInfo*) session withDelegate: (id<DuoKanApiDelegate>) delegate;
+
 - (NSNumber*) getRating: (NSString*) htmlString;
 - (void) setDatabaseAPI: (id<DuokanDatabaseAPI>) api;
 - (void) logout;

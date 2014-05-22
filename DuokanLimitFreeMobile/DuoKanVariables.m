@@ -17,5 +17,7 @@
  NSString* const duokanLoginSign = @"Dy/DBI9rHd+kGx+1dSMKLChZod4=";
  NSString* const duokanCheckURL = @"http://www.duokan.com/store/v0/order/check_book";
  NSString* const duokanOrderURL = @"http://www.duokan.com/store/v0/payment/book/create";
+ NSString* const duokanHideURL = @"http://www.duokan.com/store/v0/payment/book/hide";
+ NSString* const duokanRevealURL = @"http://www.duokan.com/store/v0/payment/book/reveal";
 
 

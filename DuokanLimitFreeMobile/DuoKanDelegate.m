@@ -50,6 +50,7 @@
         [_api isOrdered:book inSession:[DuoKanSessionInfo getSessionFromCookie] withDelegate:self];
     } else {
         NSLog(@"book already in core data, ignored: %@", book);
+        [_callback DuokanDelegate:self success:book];
     }
 }
 

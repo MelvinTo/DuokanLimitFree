@@ -36,6 +36,10 @@
     
     // Set the gesture
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+    
+    // Set the side bar button action. When it's tapped, it'll show up the sidebar.
+    _menuButton.target = self.revealViewController;
+    _menuButton.action = @selector(revealToggle:);
 }
 
 - (void)didReceiveMemoryWarning

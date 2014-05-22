@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DuoKanSettingsViewController : UITableViewController
-
+@interface DuoKanSettingsViewController : UITableViewController {
+    IBOutlet UIBarButtonItem* _menuButton;
+}
 @end

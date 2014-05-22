@@ -251,6 +251,77 @@
     }];
 }
 
+- (void) hide: (Book*) book inSession: (DuoKanSessionInfo*) session withDelegate: (id<DuoKanApiDelegate>) delegate userInfo: (NSDictionary*) info {    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    NSLog(@"calling url %@", duokanHideURL);
+    
+    NSDictionary *parameters = @{
+                                 @"book_uuid": book.bookID,
+                                 @"token": session.token,
+                                 @"user_id": session.userID,
+                                 @"app_id": session.appID,
+                                 @"device_id": session.deviceID
+                                 };
+    //    NSLog(@"parameters: %@", parameters);
+    
+    [manager POST:duokanHideURL parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject isKindOfClass:[NSDictionary class]]) {
+            NSDictionary* dict = (NSDictionary*)responseObject;
+            NSNumber* result = [dict objectForKey:@"result"];
+            NSString* msg = [dict objectForKey:@"msg"];
+            
+            if([result isEqual:[NSNumber numberWithInt:0]] && [msg isEqualToString:@"成功"]) {
+                NSLog(@"Succesfully hide book: %@", book);
+                book.hide = [NSNumber numberWithBool:YES];
+                [_dbAPI save];
+                [delegate hideResult:book withError:nil userInfo:info];
+                return;
+            }
+            
+        }
+        [delegate hideResult:book withError:[NSError errorWithDomain:@"failed to order" code:1 userInfo:@{@"response": responseObject}] userInfo:nil];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error when calling hide: %@", error);
+        [delegate hideResult:book withError:error userInfo:nil];
+    }];
+}
+
+- (void) reveal: (Book*) book inSession: (DuoKanSessionInfo*) session withDelegate: (id<DuoKanApiDelegate>) delegate {
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    NSLog(@"calling url %@", duokanHideURL);
+    
+    NSDictionary *parameters = @{
+                                 @"book_uuid": book.bookID,
+                                 @"token": session.token,
+                                 @"user_id": session.userID,
+                                 @"app_id": session.appID,
+                                 @"device_id": session.deviceID
+                                 };
+    //    NSLog(@"parameters: %@", parameters);
+    
+    [manager POST:duokanRevealURL parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject isKindOfClass:[NSDictionary class]]) {
+            NSDictionary* dict = (NSDictionary*)responseObject;
+            NSNumber* result = [dict objectForKey:@"result"];
+            NSString* msg = [dict objectForKey:@"msg"];
+            
+            if([result isEqual:[NSNumber numberWithInt:0]] && [msg isEqualToString:@"成功"]) {
+                NSLog(@"Succesfully hide book: %@", book);
+                book.hide = [NSNumber numberWithBool:NO];
+                [_dbAPI save];
+                [delegate revealResult:book withError:nil];
+                return;
+            }
+            
+        }
+        //        NSLog(@"check response: %@", responseObject);
+        [delegate revealResult: book withError:[NSError errorWithDomain:@"failed to reveal" code:1 userInfo:@{@"response": responseObject}]];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error when calling reveal: %@", error);
+        [delegate revealResult:book withError:error];
+    }];
+}
 
 
 @end

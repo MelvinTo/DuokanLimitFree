@@ -17,6 +17,8 @@
 		41139378191E9B1600C4BCC1 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 41139377191E9B1600C4BCC1 /* menu.png */; };
 		4113937A191E9BFE00C4BCC1 /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41139379191E9BFE00C4BCC1 /* menu@2x.png */; };
 		413AC059192BAE1100133B68 /* DuoKanRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 413AC058192BAE1100133B68 /* DuoKanRecordTableViewCell.m */; };
+		413AC05C192CFD7800133B68 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 413AC05B192CFD7800133B68 /* Book.m */; };
+		413AC05F192E41BF00133B68 /* NSDate+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 413AC05E192E41BF00133B68 /* NSDate+Utility.m */; };
 		417319EA191A8E51001E9160 /* DuoKanCoreDataUtilTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 417319E9191A8E51001E9160 /* DuoKanCoreDataUtilTest.m */; };
 		417319ED191AAB6C001E9160 /* Record+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 417319EC191AAB6C001E9160 /* Record+Utility.m */; };
 		417319F0191BE107001E9160 /* UIImage+Functions.m in Sources */ = {isa = PBXBuildFile; fileRef = 417319EF191BE107001E9160 /* UIImage+Functions.m */; };
@@ -56,7 +58,6 @@
 		41D409751905620B00DE9A98 /* DuoKanDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D409741905620B00DE9A98 /* DuoKanDebug.m */; };
 		41D4097B19080B8800DE9A98 /* DuokanModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 41D4097919080B8800DE9A98 /* DuokanModel.xcdatamodeld */; };
 		41D4097E1908102600DE9A98 /* Record.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D4097D1908102600DE9A98 /* Record.m */; };
-		41D409811908102700DE9A98 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D409801908102700DE9A98 /* Book.m */; };
 		41D4098419081A1900DE9A98 /* DuoKanCoreDataUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 41D4098319081A1900DE9A98 /* DuoKanCoreDataUtil.m */; };
 		BACCC78DA7064895B1A28D41 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6507A2A49D243F89C8284B3 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -89,6 +90,10 @@
 		41139379191E9BFE00C4BCC1 /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
 		413AC057192BAE1100133B68 /* DuoKanRecordTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuoKanRecordTableViewCell.h; sourceTree = "<group>"; };
 		413AC058192BAE1100133B68 /* DuoKanRecordTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuoKanRecordTableViewCell.m; sourceTree = "<group>"; };
+		413AC05A192CFD7800133B68 /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
+		413AC05B192CFD7800133B68 /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
+		413AC05D192E41BF00133B68 /* NSDate+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utility.h"; sourceTree = "<group>"; };
+		413AC05E192E41BF00133B68 /* NSDate+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utility.m"; sourceTree = "<group>"; };
 		417319E9191A8E51001E9160 /* DuoKanCoreDataUtilTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DuoKanCoreDataUtilTest.m; path = DuokanLimitFreeMobileTests/DuoKanCoreDataUtilTest.m; sourceTree = SOURCE_ROOT; };
 		417319EB191AAB6C001E9160 /* Record+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Record+Utility.h"; sourceTree = "<group>"; };
 		417319EC191AAB6C001E9160 /* Record+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Record+Utility.m"; sourceTree = "<group>"; };
@@ -152,8 +157,6 @@
 		41D4097A19080B8800DE9A98 /* DuokanModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DuokanModel.xcdatamodel; sourceTree = "<group>"; };
 		41D4097C1908102600DE9A98 /* Record.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Record.h; sourceTree = "<group>"; };
 		41D4097D1908102600DE9A98 /* Record.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Record.m; sourceTree = "<group>"; };
-		41D4097F1908102700DE9A98 /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
-		41D409801908102700DE9A98 /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
 		41D4098219081A1900DE9A98 /* DuoKanCoreDataUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuoKanCoreDataUtil.h; sourceTree = "<group>"; };
 		41D4098319081A1900DE9A98 /* DuoKanCoreDataUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuoKanCoreDataUtil.m; sourceTree = "<group>"; };
 		911278B13E5847AB88E5FA6E /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -223,8 +226,6 @@
 				41D409661903B40C00DE9A98 /* 3rdparty */,
 				41D409471902BE1200DE9A98 /* Book+Utility.h */,
 				41D409481902BE1200DE9A98 /* Book+Utility.m */,
-				41D4097F1908102700DE9A98 /* Book.h */,
-				41D409801908102700DE9A98 /* Book.m */,
 				41D409451902BE1200DE9A98 /* DuoKanApi.h */,
 				41D409461902BE1200DE9A98 /* DuoKanApi.m */,
 				41D4091C1902BD1000DE9A98 /* DuoKanAppDelegate.h */,
@@ -252,6 +253,8 @@
 				41D409581902C08500DE9A98 /* DuoKanMobileNotification.h */,
 				41D409591902C08500DE9A98 /* DuoKanMobileNotification.m */,
 				41D4097919080B8800DE9A98 /* DuokanModel.xcdatamodeld */,
+				413AC05A192CFD7800133B68 /* Book.h */,
+				413AC05B192CFD7800133B68 /* Book.m */,
 				41D409551902C07600DE9A98 /* DuoKanScheduler.h */,
 				41D409561902C07600DE9A98 /* DuoKanScheduler.m */,
 				41D409251902BD1000DE9A98 /* DuoKanSecondViewController.h */,
@@ -283,6 +286,8 @@
 				41732FCF191FD1EA00CA6C92 /* DuoKanSettingsViewController.m */,
 				413AC057192BAE1100133B68 /* DuoKanRecordTableViewCell.h */,
 				413AC058192BAE1100133B68 /* DuoKanRecordTableViewCell.m */,
+				413AC05D192E41BF00133B68 /* NSDate+Utility.h */,
+				413AC05E192E41BF00133B68 /* NSDate+Utility.m */,
 			);
 			path = DuokanLimitFreeMobile;
 			sourceTree = "<group>";
@@ -477,7 +482,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41D409811908102700DE9A98 /* Book.m in Sources */,
 				41139376191E94D500C4BCC1 /* DuoKanNavigationController.m in Sources */,
 				417319ED191AAB6C001E9160 /* Record+Utility.m in Sources */,
 				41139373191E87B700C4BCC1 /* DuoKanMenuTableViewController.m in Sources */,
@@ -490,6 +494,8 @@
 				41D4091A1902BD1000DE9A98 /* main.m in Sources */,
 				41D409571902C07600DE9A98 /* DuoKanScheduler.m in Sources */,
 				417319F0191BE107001E9160 /* UIImage+Functions.m in Sources */,
+				413AC05C192CFD7800133B68 /* Book.m in Sources */,
+				413AC05F192E41BF00133B68 /* NSDate+Utility.m in Sources */,
 				41D4098419081A1900DE9A98 /* DuoKanCoreDataUtil.m in Sources */,
 				417319F3191BEA7E001E9160 /* DuoKanWebViewController.m in Sources */,
 				41D4096C190403C600DE9A98 /* KeychainItemWrapper.m in Sources */,
