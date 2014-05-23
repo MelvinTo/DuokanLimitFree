@@ -19,6 +19,9 @@
 		413AC059192BAE1100133B68 /* DuoKanRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 413AC058192BAE1100133B68 /* DuoKanRecordTableViewCell.m */; };
 		413AC05C192CFD7800133B68 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 413AC05B192CFD7800133B68 /* Book.m */; };
 		413AC05F192E41BF00133B68 /* NSDate+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 413AC05E192E41BF00133B68 /* NSDate+Utility.m */; };
+		413AC063192FA34600133B68 /* rating_half.png in Resources */ = {isa = PBXBuildFile; fileRef = 413AC060192FA34600133B68 /* rating_half.png */; };
+		413AC065192FA34600133B68 /* rating_grey.png in Resources */ = {isa = PBXBuildFile; fileRef = 413AC062192FA34600133B68 /* rating_grey.png */; };
+		413AC067192FA3E400133B68 /* rating_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 413AC066192FA3E400133B68 /* rating_yellow.png */; };
 		417319EA191A8E51001E9160 /* DuoKanCoreDataUtilTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 417319E9191A8E51001E9160 /* DuoKanCoreDataUtilTest.m */; };
 		417319ED191AAB6C001E9160 /* Record+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 417319EC191AAB6C001E9160 /* Record+Utility.m */; };
 		417319F0191BE107001E9160 /* UIImage+Functions.m in Sources */ = {isa = PBXBuildFile; fileRef = 417319EF191BE107001E9160 /* UIImage+Functions.m */; };
@@ -94,6 +97,9 @@
 		413AC05B192CFD7800133B68 /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
 		413AC05D192E41BF00133B68 /* NSDate+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utility.h"; sourceTree = "<group>"; };
 		413AC05E192E41BF00133B68 /* NSDate+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utility.m"; sourceTree = "<group>"; };
+		413AC060192FA34600133B68 /* rating_half.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rating_half.png; sourceTree = "<group>"; };
+		413AC062192FA34600133B68 /* rating_grey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rating_grey.png; sourceTree = "<group>"; };
+		413AC066192FA3E400133B68 /* rating_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rating_yellow.png; sourceTree = "<group>"; };
 		417319E9191A8E51001E9160 /* DuoKanCoreDataUtilTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DuoKanCoreDataUtilTest.m; path = DuokanLimitFreeMobileTests/DuoKanCoreDataUtilTest.m; sourceTree = SOURCE_ROOT; };
 		417319EB191AAB6C001E9160 /* Record+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Record+Utility.h"; sourceTree = "<group>"; };
 		417319EC191AAB6C001E9160 /* Record+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Record+Utility.m"; sourceTree = "<group>"; };
@@ -226,6 +232,8 @@
 				41D409661903B40C00DE9A98 /* 3rdparty */,
 				41D409471902BE1200DE9A98 /* Book+Utility.h */,
 				41D409481902BE1200DE9A98 /* Book+Utility.m */,
+				413AC05A192CFD7800133B68 /* Book.h */,
+				413AC05B192CFD7800133B68 /* Book.m */,
 				41D409451902BE1200DE9A98 /* DuoKanApi.h */,
 				41D409461902BE1200DE9A98 /* DuoKanApi.m */,
 				41D4091C1902BD1000DE9A98 /* DuoKanAppDelegate.h */,
@@ -250,23 +258,33 @@
 				41D409611902C7FA00DE9A98 /* DuoKanLoginViewController.m */,
 				4113936B191E77D700C4BCC1 /* DuoKanLoginWebViewController.h */,
 				4113936C191E77D700C4BCC1 /* DuoKanLoginWebViewController.m */,
+				41139371191E87B700C4BCC1 /* DuoKanMenuTableViewController.h */,
+				41139372191E87B700C4BCC1 /* DuoKanMenuTableViewController.m */,
 				41D409581902C08500DE9A98 /* DuoKanMobileNotification.h */,
 				41D409591902C08500DE9A98 /* DuoKanMobileNotification.m */,
 				41D4097919080B8800DE9A98 /* DuokanModel.xcdatamodeld */,
-				413AC05A192CFD7800133B68 /* Book.h */,
-				413AC05B192CFD7800133B68 /* Book.m */,
+				41139374191E94D500C4BCC1 /* DuoKanNavigationController.h */,
+				41139375191E94D500C4BCC1 /* DuoKanNavigationController.m */,
+				413AC057192BAE1100133B68 /* DuoKanRecordTableViewCell.h */,
+				413AC058192BAE1100133B68 /* DuoKanRecordTableViewCell.m */,
+				4113936E191E873F00C4BCC1 /* DuoKanRevealViewController.h */,
+				4113936F191E873F00C4BCC1 /* DuoKanRevealViewController.m */,
 				41D409551902C07600DE9A98 /* DuoKanScheduler.h */,
 				41D409561902C07600DE9A98 /* DuoKanScheduler.m */,
 				41D409251902BD1000DE9A98 /* DuoKanSecondViewController.h */,
 				41D409261902BD1000DE9A98 /* DuoKanSecondViewController.m */,
 				41D409491902BE1200DE9A98 /* DuoKanSessionInfo.h */,
 				41D4094A1902BE1200DE9A98 /* DuoKanSessionInfo.m */,
+				41732FCE191FD1EA00CA6C92 /* DuoKanSettingsViewController.h */,
+				41732FCF191FD1EA00CA6C92 /* DuoKanSettingsViewController.m */,
 				41D4094B1902BE1200DE9A98 /* DuokanVariables.h */,
 				41D4094C1902BE1200DE9A98 /* DuoKanVariables.m */,
 				417319F1191BEA7E001E9160 /* DuoKanWebViewController.h */,
 				417319F2191BEA7E001E9160 /* DuoKanWebViewController.m */,
 				41D409281902BD1000DE9A98 /* Images.xcassets */,
 				41D4091F1902BD1000DE9A98 /* Main.storyboard */,
+				413AC05D192E41BF00133B68 /* NSDate+Utility.h */,
+				413AC05E192E41BF00133B68 /* NSDate+Utility.m */,
 				417319EB191AAB6C001E9160 /* Record+Utility.h */,
 				417319EC191AAB6C001E9160 /* Record+Utility.m */,
 				41D4097C1908102600DE9A98 /* Record.h */,
@@ -276,18 +294,6 @@
 				41139366191E74BC00C4BCC1 /* UIButtonWithBorder.m */,
 				417319EE191BE107001E9160 /* UIImage+Functions.h */,
 				417319EF191BE107001E9160 /* UIImage+Functions.m */,
-				4113936E191E873F00C4BCC1 /* DuoKanRevealViewController.h */,
-				4113936F191E873F00C4BCC1 /* DuoKanRevealViewController.m */,
-				41139371191E87B700C4BCC1 /* DuoKanMenuTableViewController.h */,
-				41139372191E87B700C4BCC1 /* DuoKanMenuTableViewController.m */,
-				41139374191E94D500C4BCC1 /* DuoKanNavigationController.h */,
-				41139375191E94D500C4BCC1 /* DuoKanNavigationController.m */,
-				41732FCE191FD1EA00CA6C92 /* DuoKanSettingsViewController.h */,
-				41732FCF191FD1EA00CA6C92 /* DuoKanSettingsViewController.m */,
-				413AC057192BAE1100133B68 /* DuoKanRecordTableViewCell.h */,
-				413AC058192BAE1100133B68 /* DuoKanRecordTableViewCell.m */,
-				413AC05D192E41BF00133B68 /* NSDate+Utility.h */,
-				413AC05E192E41BF00133B68 /* NSDate+Utility.m */,
 			);
 			path = DuokanLimitFreeMobile;
 			sourceTree = "<group>";
@@ -296,6 +302,9 @@
 			isa = PBXGroup;
 			children = (
 				41732FCC191FD00100CA6C92 /* rating_0.png */,
+				413AC066192FA3E400133B68 /* rating_yellow.png */,
+				413AC060192FA34600133B68 /* rating_half.png */,
+				413AC062192FA34600133B68 /* rating_grey.png */,
 				41139377191E9B1600C4BCC1 /* menu.png */,
 				41139379191E9BFE00C4BCC1 /* menu@2x.png */,
 				41139363191D325100C4BCC1 /* placeholder_for_book.png */,
@@ -425,11 +434,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4113937A191E9BFE00C4BCC1 /* menu@2x.png in Resources */,
+				413AC063192FA34600133B68 /* rating_half.png in Resources */,
 				41139378191E9B1600C4BCC1 /* menu.png in Resources */,
+				413AC065192FA34600133B68 /* rating_grey.png in Resources */,
 				41D409291902BD1000DE9A98 /* Images.xcassets in Resources */,
 				41D409181902BD1000DE9A98 /* InfoPlist.strings in Resources */,
 				41139364191D325100C4BCC1 /* placeholder_for_book.png in Resources */,
 				41D409211902BD1000DE9A98 /* Main.storyboard in Resources */,
+				413AC067192FA3E400133B68 /* rating_yellow.png in Resources */,
 				41732FCD191FD00100CA6C92 /* rating_0.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

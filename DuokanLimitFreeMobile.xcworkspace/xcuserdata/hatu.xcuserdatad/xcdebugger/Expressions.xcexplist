@@ -3,6 +3,14 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "-[DuoKanHistoryViewController gestureRecognizer:shouldReceiveTouch:]:DuoKanHistoryViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.revealViewController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[DuoKanHistoryViewController tableView:numberOfRowsInSection:]:DuoKanHistoryViewController.m">
          <PersistentStrings>
             <PersistentString

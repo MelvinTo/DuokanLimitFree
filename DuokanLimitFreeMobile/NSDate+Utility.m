@@ -16,7 +16,7 @@
     double ti = [self timeIntervalSinceDate:[NSDate date]];
     ti = ti * -1;
     if(ti < 1) {
-        return @"never";
+        return @"刚刚";
     } else 	if (ti < 60) {
         return @"刚刚";
     } else if (ti < 3600) {

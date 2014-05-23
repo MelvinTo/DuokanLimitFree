@@ -162,7 +162,7 @@
     book.oldPrice = [NSNumber numberWithFloat:[[self parseData:jsonString withPattern:@"old_price : '([^']*)'"] floatValue]];
     book.cover = [self parseData:jsonString withPattern:@"cover : '([^']*)!vt'"];
     book.url = [NSString stringWithFormat:@"%@%@", duokanMainURL, [self parseData:jsonString withPattern:@"url : '([^']*)'"]];
-    book.author = [self parseData:jsonString withPattern:@"authors : '([^']*)'"];
+    book.author = [[self parseData:jsonString withPattern:@"authors : '([^']*)'"] stringByReplacingOccurrencesOfString:@"\\\\n" withString:@", "];
     
     // get rating
     book.rating = [self getRating:htmlString];

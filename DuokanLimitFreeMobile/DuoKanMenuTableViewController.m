@@ -41,7 +41,6 @@
     self.tableView.separatorColor = [UIColor colorWithWhite:0.15f alpha:0.2f];
     
     _menuItems = @[@"title", @"history", @"settings", @"logout"];
-
 }
 
 - (void)didReceiveMemoryWarning

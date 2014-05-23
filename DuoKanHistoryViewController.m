@@ -14,35 +14,6 @@
 #import "SWRevealViewController.h"
 #import "DuoKanRecordTableViewCell.h"
 
-@interface NSDate (DateDiff)
-- (NSString*) diffTimeWithNow;
-@end
-
-@implementation NSDate (DateDiff)
-
-- (NSString*) diffTimeWithNow {
-    double ti = [self timeIntervalSinceDate:[NSDate date]];
-    ti = ti * -1;
-    if(ti < 1) {
-        return @"never";
-    } else 	if (ti < 60) {
-        return @"刚刚";
-    } else if (ti < 3600) {
-        int diff = round(ti / 60);
-        return [NSString stringWithFormat:@"%d分钟前", diff];
-    } else if (ti < 86400) {
-        int diff = round(ti / 60 / 60);
-        return[NSString stringWithFormat:@"%d小时前", diff];
-    } else if (ti < 2629743) {
-        int diff = round(ti / 60 / 60 / 24);
-        return[NSString stringWithFormat:@"%d天前", diff];
-    } else {
-        return @"never";
-    }	
-}
-
-@end
-
 @implementation DuoKanHistoryViewController
 
 @synthesize fetchedResultsController = _fetchedResultsController;
@@ -77,12 +48,14 @@
 }
 
 - (void) toggleTap:(id) sender {
+    NSLog(@"called toggleTap");
     [self.revealViewController revealToggle:self];
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
     if ([gestureRecognizer isKindOfClass:[UITapGestureRecognizer class]]) {
         if (self.revealViewController.frontViewPosition == FrontViewPositionRight) {
+            NSLog(@"returning YES for gesture...");
             return YES;
         } else {
             return NO;
@@ -90,6 +63,11 @@
     } else {
         return YES;
     }
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    NSLog(@"checking gesture: %@", gestureRecognizer);
+    return NO;
 }
 
 - (void)viewDidLoad {
@@ -107,8 +85,11 @@
     
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
 
+    
     UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc]
         initWithTarget:self action:@selector(toggleTap:)];
+    tap.numberOfTapsRequired = 1;
+    tap.numberOfTouchesRequired = 1;
     [tap setDelegate:self];
     [self.view addGestureRecognizer: tap];
     
@@ -122,8 +103,8 @@
 		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 	}
     
-    self.navigationController.interactivePopGestureRecognizer.enabled = YES;
-    self.navigationController.interactivePopGestureRecognizer.delegate = self;
+//    self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+//    self.navigationController.interactivePopGestureRecognizer.delegate = self;
     
     [self.tableView setSeparatorColor:[UIColor clearColor]];
     
@@ -307,6 +288,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
     NSLog(@"cell %@ is selected", indexPath);
     Record *record = [_fetchedResultsController objectAtIndexPath:indexPath];
     [self performSegueWithIdentifier:@"web" sender:record];
@@ -321,7 +303,12 @@
 }
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    
     if ([identifier isEqualToString:@"web"] && ! [sender isKindOfClass:[Record class]]) {
+        return NO;
+    }
+    
+    if ([identifier isEqualToString:@"web"] && self.revealViewController.frontViewPosition == FrontViewPositionRight) {
         return NO;
     }
     return YES;
@@ -366,6 +353,13 @@
 {
     NSMutableArray *leftUtilityButtons = [NSMutableArray new];
     return leftUtilityButtons;
+}
+
+- (void)dealloc {
+    NSLog(@"dealloc is called for HistoryViewController: %@", self);
+    for (UIGestureRecognizer* recognizer in self.view.gestureRecognizers) {
+        [self.view removeGestureRecognizer:recognizer];
+    }
 }
 
 @end

@@ -13,6 +13,7 @@
 @interface DuoKanRecordTableViewCell : SWTableViewCell
 
 @property (nonatomic, weak) IBOutlet UILabel* bookTitle;
+@property (nonatomic, weak) IBOutlet UILabel* author;
 @property (nonatomic, weak) IBOutlet UILabel* price;
 @property (nonatomic, weak) IBOutlet UIImageView* cover;
 @property (nonatomic, weak) IBOutlet UIImageView* rate1;
