@@ -23,6 +23,7 @@
 @property (nonatomic) NSString* deviceID;
 
 + (DuoKanSessionInfo*) getSessionFromCookie;
++ (void) cleanCookies;
 + (void) getAllCookies;
 
 - (BOOL) isValid;

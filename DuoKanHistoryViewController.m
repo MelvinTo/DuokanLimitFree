@@ -95,6 +95,14 @@
     [refreshControl addTarget:self action:@selector(refresh)
              forControlEvents:UIControlEventValueChanged];
     self.refreshControl = refreshControl;
+    
+
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    // set title
+    DuoKanSessionInfo* info = [DuoKanSessionInfo getSessionFromCookie];
+    self.title = info.userID;
 }
 
 - (void)refresh {

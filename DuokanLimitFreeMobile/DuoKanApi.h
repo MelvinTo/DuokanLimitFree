@@ -37,6 +37,7 @@
 - (void) mainPage: (NSData*)htmlData withError: (NSError*) err;
 - (void) hideResult: (Book*) book withError: (NSError*) err userInfo:(NSDictionary*) info;
 - (void) revealResult: (Book*) book withError: (NSError*) err;
+- (void) logoutResult: (NSError*) err;
 
 @end
 
@@ -56,6 +57,6 @@
 
 - (NSNumber*) getRating: (NSString*) htmlString;
 - (void) setDatabaseAPI: (id<DuokanDatabaseAPI>) api;
-- (void) logout;
+- (void) logout:(id<DuoKanApiDelegate>) delegate;
 
 @end

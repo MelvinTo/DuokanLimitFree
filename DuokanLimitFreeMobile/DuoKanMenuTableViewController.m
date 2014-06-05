@@ -121,11 +121,6 @@
 //        DuoKanHistoryViewController* historyController = (DuoKanHistoryViewController*)segue.destinationViewController;
 //    }
     NSString* menu = [_menuItems objectAtIndex:indexPath.row];
-    if ([menu isEqualToString:@"logout"]) {
-        DuoKanApi* api = [[DuoKanApi alloc] init];
-        [api logout];
-        destViewController.title = @"多看抢拍器";
-    }
     
     if ( [segue isKindOfClass: [SWRevealViewControllerSegue class]] ) {
         SWRevealViewControllerSegue *swSegue = (SWRevealViewControllerSegue*) segue;
@@ -142,6 +137,5 @@
         
     }
 }
-
 
 @end

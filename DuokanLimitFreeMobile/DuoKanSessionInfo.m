@@ -32,6 +32,15 @@
     return session;
 }
 
++ (void) cleanCookies {
+    NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
+//    NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL: [NSURL URLWithString:duokanMainURL]];
+
+    for (NSHTTPCookie* cookie in cookies) {
+        [[NSHTTPCookieStorage sharedHTTPCookieStorage] deleteCookie: cookie];
+    }
+}
+
 + (void) getAllCookies {
     NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL: [NSURL URLWithString:duokanMainURL]];
 //    NSLog(@"Cookies: %@", cookies);

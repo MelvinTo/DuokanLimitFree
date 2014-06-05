@@ -16,6 +16,7 @@
 		41139376191E94D500C4BCC1 /* DuoKanNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41139375191E94D500C4BCC1 /* DuoKanNavigationController.m */; };
 		41139378191E9B1600C4BCC1 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 41139377191E9B1600C4BCC1 /* menu.png */; };
 		4113937A191E9BFE00C4BCC1 /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41139379191E9BFE00C4BCC1 /* menu@2x.png */; };
+		4113EC141940CE5B0083CD23 /* DuoKanLogoutButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4113EC131940CE5B0083CD23 /* DuoKanLogoutButtonViewController.m */; };
 		413AC059192BAE1100133B68 /* DuoKanRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 413AC058192BAE1100133B68 /* DuoKanRecordTableViewCell.m */; };
 		413AC05C192CFD7800133B68 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 413AC05B192CFD7800133B68 /* Book.m */; };
 		413AC05F192E41BF00133B68 /* NSDate+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 413AC05E192E41BF00133B68 /* NSDate+Utility.m */; };
@@ -91,6 +92,8 @@
 		41139375191E94D500C4BCC1 /* DuoKanNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuoKanNavigationController.m; sourceTree = "<group>"; };
 		41139377191E9B1600C4BCC1 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		41139379191E9BFE00C4BCC1 /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
+		4113EC121940CE5B0083CD23 /* DuoKanLogoutButtonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuoKanLogoutButtonViewController.h; sourceTree = "<group>"; };
+		4113EC131940CE5B0083CD23 /* DuoKanLogoutButtonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuoKanLogoutButtonViewController.m; sourceTree = "<group>"; };
 		413AC057192BAE1100133B68 /* DuoKanRecordTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuoKanRecordTableViewCell.h; sourceTree = "<group>"; };
 		413AC058192BAE1100133B68 /* DuoKanRecordTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuoKanRecordTableViewCell.m; sourceTree = "<group>"; };
 		413AC05A192CFD7800133B68 /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
@@ -294,6 +297,8 @@
 				41139366191E74BC00C4BCC1 /* UIButtonWithBorder.m */,
 				417319EE191BE107001E9160 /* UIImage+Functions.h */,
 				417319EF191BE107001E9160 /* UIImage+Functions.m */,
+				4113EC121940CE5B0083CD23 /* DuoKanLogoutButtonViewController.h */,
+				4113EC131940CE5B0083CD23 /* DuoKanLogoutButtonViewController.m */,
 			);
 			path = DuokanLimitFreeMobile;
 			sourceTree = "<group>";
@@ -514,6 +519,7 @@
 				41D409241902BD1000DE9A98 /* DuoKanFirstViewController.m in Sources */,
 				41D4094F1902BE1200DE9A98 /* DuoKanSessionInfo.m in Sources */,
 				41D409751905620B00DE9A98 /* DuoKanDebug.m in Sources */,
+				4113EC141940CE5B0083CD23 /* DuoKanLogoutButtonViewController.m in Sources */,
 				41D4094E1902BE1200DE9A98 /* Book+Utility.m in Sources */,
 				4113936D191E77D700C4BCC1 /* DuoKanLoginWebViewController.m in Sources */,
 				41D409721904180600DE9A98 /* DuoKanHistoryViewController.m in Sources */,

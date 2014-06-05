@@ -50,14 +50,30 @@
     
 }
 
-- (void) logout {
-    NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-    for (NSHTTPCookie *each in cookieStorage.cookies) {
-        if ([each.name isEqualToString:@"token"]
-            && [each.domain isEqualToString:@".duokan.com"]) {
-            [cookieStorage deleteCookie:each];
-        }
-    }
+- (void) logout: (id <DuoKanApiDelegate> ) delegate {
+//    NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+//    for (NSHTTPCookie *each in cookieStorage.cookies) {
+//        if ([each.name isEqualToString:@"token"]
+//            && [each.domain isEqualToString:@".duokan.com"]) {
+//            [cookieStorage deleteCookie:each];
+//        }
+//    }
+
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    NSLog(@"calling url %@", xiaomiLogoutURL);
+    
+    manager.requestSerializer = [[AFHTTPRequestSerializer alloc] init];
+    manager.responseSerializer = [[AFHTTPResponseSerializer alloc] init];
+    
+    DuoKanSessionInfo* session = [DuoKanSessionInfo getSessionFromCookie];
+    
+    [manager GET:xiaomiLogoutURL parameters:@{@"userId" : session.userID, @"sid" : @"dushu"} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [delegate logoutResult:nil];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Logout Error: %@", error);
+        [delegate logoutResult:error];
+    }];
     
 }
 

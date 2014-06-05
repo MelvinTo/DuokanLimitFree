@@ -170,10 +170,10 @@
             </objects>
             <point key="canvasLocation" x="2148" y="-2218"/>
         </scene>
-        <!--Duo Kan History View Controller - 购买记录-->
+        <!--Duo Kan History View Controller - abcd-->
         <scene sceneID="cL3-iH-oHt">
             <objects>
-                <tableViewController id="ZjE-WA-D41" customClass="DuoKanHistoryViewController" sceneMemberID="viewController">
+                <tableViewController title="abcd" id="ZjE-WA-D41" customClass="DuoKanHistoryViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="233" sectionHeaderHeight="22" sectionFooterHeight="22" id="eBZ-fZ-0pG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -363,7 +363,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KyW-0U-pud" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="644" y="-72"/>
+            <point key="canvasLocation" x="633" y="502"/>
         </scene>
         <!--Duo Kan Login Button View Controller - 多看抢拍器-->
         <scene sceneID="we5-j4-nXT">
@@ -404,7 +404,37 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a3Y-9l-YOz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1163" y="-72"/>
+            <point key="canvasLocation" x="1152" y="502"/>
+        </scene>
+        <!--Duo Kan Logout Button View Controller-->
+        <scene sceneID="VvD-2Q-f4n">
+            <objects>
+                <viewController id="RA4-lT-lqT" customClass="DuoKanLogoutButtonViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jDm-G5-Hje"/>
+                        <viewControllerLayoutGuide type="bottom" id="4fG-sL-cdT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ybN-Jk-rnF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Logging out" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQD-as-zXK">
+                                <rect key="frame" x="114" y="273" width="92" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="qWx-WX-qMw" kind="custom" identifier="login" customClass="SWRevealViewControllerSegue" id="OPk-fV-4FI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MRZ-Kw-QdL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1152" y="-207"/>
         </scene>
         <!--Duo Kan Login Web View Controller-->
         <scene sceneID="ROp-qy-PNH">
@@ -434,7 +464,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g8R-pL-SMO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1683" y="-72"/>
+            <point key="canvasLocation" x="1672" y="502"/>
         </scene>
         <!--Duo Kan Menu Table View Controller-->
         <scene sceneID="eIE-CI-2YR">
@@ -529,7 +559,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="qWx-WX-qMw" kind="custom" identifier="login" customClass="SWRevealViewControllerSegue" id="pfO-Ya-oLW"/>
+                                    <segue destination="RA4-lT-lqT" kind="custom" customClass="SWRevealViewControllerSegue" id="g1s-5I-YR3"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -700,7 +730,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="OsT-36-Zoe"/>
-        <segue reference="pfO-Ya-oLW"/>
+        <segue reference="OPk-fV-4FI"/>
+        <segue reference="jNW-5J-5rC"/>
     </inferredMetricsTieBreakers>
 </document>

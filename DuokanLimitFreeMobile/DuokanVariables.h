@@ -19,5 +19,6 @@ extern NSString* const duokanCheckURL;
 extern NSString* const duokanOrderURL;
 extern NSString* const duokanHideURL;
 extern NSString* const duokanRevealURL;
+extern NSString* const xiaomiLogoutURL;
 
 #endif
