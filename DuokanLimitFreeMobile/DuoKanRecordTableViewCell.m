@@ -10,6 +10,7 @@
 #import "UIImage+Functions.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "NSDate+Utility.h"
+#import "SWRevealViewController.h"
 
 
 @implementation DuoKanRecordTableViewCell
@@ -106,6 +107,15 @@
                             }];
 
     [self setupRating];
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    if ([gestureRecognizer isKindOfClass:[UITapGestureRecognizer class]]) {
+        if (self.tableViewController.revealViewController.frontViewPosition == FrontViewPositionRight) {
+            return NO;
+        }
+    }
+    return YES;
 }
 
 @end

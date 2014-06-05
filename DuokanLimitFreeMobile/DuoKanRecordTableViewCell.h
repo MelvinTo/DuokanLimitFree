@@ -10,7 +10,7 @@
 #import "Record.h"
 #import <SWTableViewCell.h>
 
-@interface DuoKanRecordTableViewCell : SWTableViewCell
+@interface DuoKanRecordTableViewCell : SWTableViewCell <UIGestureRecognizerDelegate>
 
 @property (nonatomic, weak) IBOutlet UILabel* bookTitle;
 @property (nonatomic, weak) IBOutlet UILabel* author;
@@ -24,6 +24,7 @@
 @property (nonatomic, weak) IBOutlet UIButton* readButton;
 @property (nonatomic, weak) IBOutlet UILabel* orderTime;
 @property (nonatomic, weak) Record* record;
+@property (nonatomic, strong) UITableViewController* tableViewController;
 
 - (IBAction) startReading:(id)sender;
 - (void) disableReadButton;

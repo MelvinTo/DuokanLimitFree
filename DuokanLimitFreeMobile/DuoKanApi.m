@@ -256,7 +256,7 @@
     NSLog(@"calling url %@", duokanHideURL);
     
     NSDictionary *parameters = @{
-                                 @"book_uuid": book.bookID,
+                                 @"book_id": book.bookID,
                                  @"token": session.token,
                                  @"user_id": session.userID,
                                  @"app_id": session.appID,
@@ -267,6 +267,7 @@
     [manager POST:duokanHideURL parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([responseObject isKindOfClass:[NSDictionary class]]) {
             NSDictionary* dict = (NSDictionary*)responseObject;
+            NSLog(@"dict: %@", dict);
             NSNumber* result = [dict objectForKey:@"result"];
             NSString* msg = [dict objectForKey:@"msg"];
             
@@ -289,10 +290,10 @@
 - (void) reveal: (Book*) book inSession: (DuoKanSessionInfo*) session withDelegate: (id<DuoKanApiDelegate>) delegate {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
-    NSLog(@"calling url %@", duokanHideURL);
+    NSLog(@"calling url %@", duokanRevealURL);
     
     NSDictionary *parameters = @{
-                                 @"book_uuid": book.bookID,
+                                 @"book_id": book.bookID,
                                  @"token": session.token,
                                  @"user_id": session.userID,
                                  @"app_id": session.appID,
@@ -307,7 +308,7 @@
             NSString* msg = [dict objectForKey:@"msg"];
             
             if([result isEqual:[NSNumber numberWithInt:0]] && [msg isEqualToString:@"成功"]) {
-                NSLog(@"Succesfully hide book: %@", book);
+                NSLog(@"Succesfully reveal book: %@", book);
                 book.hide = [NSNumber numberWithBool:NO];
                 [_dbAPI save];
                 [delegate revealResult:book withError:nil];

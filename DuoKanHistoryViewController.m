@@ -52,23 +52,6 @@
     [self.revealViewController revealToggle:self];
 }
 
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
-    if ([gestureRecognizer isKindOfClass:[UITapGestureRecognizer class]]) {
-        if (self.revealViewController.frontViewPosition == FrontViewPositionRight) {
-            NSLog(@"returning YES for gesture...");
-            return YES;
-        } else {
-            return NO;
-        }
-    } else {
-        return YES;
-    }
-}
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-    NSLog(@"checking gesture: %@", gestureRecognizer);
-    return NO;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -204,6 +187,9 @@
     if (cell == nil) {
         cell = [[DuoKanRecordTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
+    
+    cell.tableViewController = self;
+
     
     cell.leftUtilityButtons = [self leftButtons];
     cell.rightUtilityButtons = [self rightButtons];
