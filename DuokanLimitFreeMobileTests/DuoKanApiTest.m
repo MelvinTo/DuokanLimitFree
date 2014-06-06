@@ -51,6 +51,7 @@ static NSString* password = @"vMm7opDLRECL7c";
     XCTAssertNil(err, @"should have no error when getting info of book: %@", book);
     self.requestComplete = YES;
     _book = book;
+    NSLog(@"book: %@", book);
 }
 
 - (void)testLogin {
@@ -392,5 +393,7 @@ static NSString* password = @"vMm7opDLRECL7c";
         }
     }
 }
+
+
 
 @end

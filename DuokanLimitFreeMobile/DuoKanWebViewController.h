@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "Record+Utility.h"
+#import "DuoKanApi.h"
 
-@interface DuoKanWebViewController : UIViewController<UIActionSheetDelegate> {
+@interface DuoKanWebViewController : UIViewController<UIActionSheetDelegate, DuoKanApiDelegate> {
     IBOutlet UIWebView* _webView;
 }
 

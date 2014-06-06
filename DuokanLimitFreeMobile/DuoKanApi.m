@@ -13,6 +13,13 @@
 
 @implementation DuoKanApi
 
++ (DuoKanApi*) api: (id<DuoKanApiDelegate>) delegate withDatabase: (id<DuokanDatabaseAPI>) database {
+    DuoKanApi* api = [[DuoKanApi alloc] init];
+    api.delegate = delegate;
+    [api setDatabaseAPI:database];
+    return api;
+}
+
 - (void) login: (NSString*) username withPassword: (NSString*) password withDelegate: (id <DuoKanApiDelegate>) delegate {
 
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -330,14 +337,44 @@
                 [delegate revealResult:book withError:nil];
                 return;
             }
-            
         }
+
         //        NSLog(@"check response: %@", responseObject);
         [delegate revealResult: book withError:[NSError errorWithDomain:@"failed to reveal" code:1 userInfo:@{@"response": responseObject}]];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error when calling reveal: %@", error);
         [delegate revealResult:book withError:error];
     }];
+}
+
+- (void) getBook: (NSString*) bookID {
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    NSLog(@"calling url %@", duokanBookInfoURL);
+    
+    [manager GET:duokanBookInfoURL parameters:@{@"ids" : bookID, @"all" : @"1"} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary* jsonDict = (NSDictionary*) responseObject;
+        NSArray* books = [jsonDict objectForKey:@"items"];
+        if (books.count == 0) {
+            // no book with such user id
+            [self.delegate bookInfo:nil withError:[NSError errorWithDomain:@"duokan" code:11 userInfo:nil]];
+            return;
+        }
+        
+
+        NSDictionary* bookInfo = books[0];
+        NSLog(@"Book payload: %@", bookInfo);
+        
+        Book* book = [_dbAPI createNewBook];
+        [book importJSON:bookInfo];
+        
+
+        [self.delegate bookInfo:book withError:nil];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"getBookInfo Error: %@", error);
+    }];
+    
+    return;
 }
 
 

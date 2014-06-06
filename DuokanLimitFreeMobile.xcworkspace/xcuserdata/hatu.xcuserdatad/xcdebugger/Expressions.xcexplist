@@ -19,18 +19,18 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[DuoKanHistoryViewController gestureRecognizer:shouldReceiveTouch:]:DuoKanHistoryViewController.m">
+         contextName = "-[Book(Utility) importJSON:]:Book+Utility.m">
          <PersistentStrings>
             <PersistentString
-               value = "self.revealViewController">
+               value = "8.3*2">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[DuoKanRecordTableViewCell gestureRecognizer:shouldReceiveTouch:]:DuoKanRecordTableViewCell.m">
+         contextName = "-[DuoKanHistoryViewController gestureRecognizer:shouldReceiveTouch:]:DuoKanHistoryViewController.m">
          <PersistentStrings>
             <PersistentString
-               value = "self.tableViewController.revealViewController">
+               value = "self.revealViewController">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

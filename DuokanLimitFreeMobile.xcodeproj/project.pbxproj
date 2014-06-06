@@ -17,8 +17,10 @@
 		41139378191E9B1600C4BCC1 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 41139377191E9B1600C4BCC1 /* menu.png */; };
 		4113937A191E9BFE00C4BCC1 /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 41139379191E9BFE00C4BCC1 /* menu@2x.png */; };
 		4113EC141940CE5B0083CD23 /* DuoKanLogoutButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4113EC131940CE5B0083CD23 /* DuoKanLogoutButtonViewController.m */; };
+		4113EC1819420B410083CD23 /* DuoKanBookShelfViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4113EC1719420B410083CD23 /* DuoKanBookShelfViewController.m */; };
+		4113EC1E194217ED0083CD23 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 4113EC1D194217ED0083CD23 /* Book.m */; };
+		4113EC2119421B770083CD23 /* DuoKanApiTest2.m in Sources */ = {isa = PBXBuildFile; fileRef = 4113EC2019421B770083CD23 /* DuoKanApiTest2.m */; };
 		413AC059192BAE1100133B68 /* DuoKanRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 413AC058192BAE1100133B68 /* DuoKanRecordTableViewCell.m */; };
-		413AC05C192CFD7800133B68 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 413AC05B192CFD7800133B68 /* Book.m */; };
 		413AC05F192E41BF00133B68 /* NSDate+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 413AC05E192E41BF00133B68 /* NSDate+Utility.m */; };
 		413AC063192FA34600133B68 /* rating_half.png in Resources */ = {isa = PBXBuildFile; fileRef = 413AC060192FA34600133B68 /* rating_half.png */; };
 		413AC065192FA34600133B68 /* rating_grey.png in Resources */ = {isa = PBXBuildFile; fileRef = 413AC062192FA34600133B68 /* rating_grey.png */; };
@@ -94,10 +96,13 @@
 		41139379191E9BFE00C4BCC1 /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
 		4113EC121940CE5B0083CD23 /* DuoKanLogoutButtonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuoKanLogoutButtonViewController.h; sourceTree = "<group>"; };
 		4113EC131940CE5B0083CD23 /* DuoKanLogoutButtonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuoKanLogoutButtonViewController.m; sourceTree = "<group>"; };
+		4113EC1619420B410083CD23 /* DuoKanBookShelfViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuoKanBookShelfViewController.h; sourceTree = "<group>"; };
+		4113EC1719420B410083CD23 /* DuoKanBookShelfViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuoKanBookShelfViewController.m; sourceTree = "<group>"; };
+		4113EC1C194217ED0083CD23 /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
+		4113EC1D194217ED0083CD23 /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
+		4113EC2019421B770083CD23 /* DuoKanApiTest2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuoKanApiTest2.m; sourceTree = "<group>"; };
 		413AC057192BAE1100133B68 /* DuoKanRecordTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuoKanRecordTableViewCell.h; sourceTree = "<group>"; };
 		413AC058192BAE1100133B68 /* DuoKanRecordTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuoKanRecordTableViewCell.m; sourceTree = "<group>"; };
-		413AC05A192CFD7800133B68 /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
-		413AC05B192CFD7800133B68 /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
 		413AC05D192E41BF00133B68 /* NSDate+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utility.h"; sourceTree = "<group>"; };
 		413AC05E192E41BF00133B68 /* NSDate+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utility.m"; sourceTree = "<group>"; };
 		413AC060192FA34600133B68 /* rating_half.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rating_half.png; sourceTree = "<group>"; };
@@ -197,6 +202,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4113EC15194207BE0083CD23 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4113EC1619420B410083CD23 /* DuoKanBookShelfViewController.h */,
+				4113EC1719420B410083CD23 /* DuoKanBookShelfViewController.m */,
+				41D409221902BD1000DE9A98 /* DuoKanFirstViewController.h */,
+				41D409231902BD1000DE9A98 /* DuoKanFirstViewController.m */,
+				41D409701904180600DE9A98 /* DuoKanHistoryViewController.h */,
+				41D409711904180600DE9A98 /* DuoKanHistoryViewController.m */,
+				41139368191E76A300C4BCC1 /* DuoKanLoginButtonViewController.h */,
+				41139369191E76A300C4BCC1 /* DuoKanLoginButtonViewController.m */,
+				41D409601902C7FA00DE9A98 /* DuoKanLoginViewController.h */,
+				41D409611902C7FA00DE9A98 /* DuoKanLoginViewController.m */,
+				4113936B191E77D700C4BCC1 /* DuoKanLoginWebViewController.h */,
+				4113936C191E77D700C4BCC1 /* DuoKanLoginWebViewController.m */,
+				4113EC121940CE5B0083CD23 /* DuoKanLogoutButtonViewController.h */,
+				4113EC131940CE5B0083CD23 /* DuoKanLogoutButtonViewController.m */,
+				41139371191E87B700C4BCC1 /* DuoKanMenuTableViewController.h */,
+				41139372191E87B700C4BCC1 /* DuoKanMenuTableViewController.m */,
+				41139374191E94D500C4BCC1 /* DuoKanNavigationController.h */,
+				41139375191E94D500C4BCC1 /* DuoKanNavigationController.m */,
+				413AC057192BAE1100133B68 /* DuoKanRecordTableViewCell.h */,
+				413AC058192BAE1100133B68 /* DuoKanRecordTableViewCell.m */,
+				4113936E191E873F00C4BCC1 /* DuoKanRevealViewController.h */,
+				4113936F191E873F00C4BCC1 /* DuoKanRevealViewController.m */,
+				41D409251902BD1000DE9A98 /* DuoKanSecondViewController.h */,
+				41D409261902BD1000DE9A98 /* DuoKanSecondViewController.m */,
+				41732FCE191FD1EA00CA6C92 /* DuoKanSettingsViewController.h */,
+				41732FCF191FD1EA00CA6C92 /* DuoKanSettingsViewController.m */,
+				417319F1191BEA7E001E9160 /* DuoKanWebViewController.h */,
+				417319F2191BEA7E001E9160 /* DuoKanWebViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		41D409011902BD1000DE9A98 = {
 			isa = PBXGroup;
 			children = (
@@ -232,11 +272,10 @@
 		41D409131902BD1000DE9A98 /* DuokanLimitFreeMobile */ = {
 			isa = PBXGroup;
 			children = (
+				4113EC15194207BE0083CD23 /* Controllers */,
 				41D409661903B40C00DE9A98 /* 3rdparty */,
 				41D409471902BE1200DE9A98 /* Book+Utility.h */,
 				41D409481902BE1200DE9A98 /* Book+Utility.m */,
-				413AC05A192CFD7800133B68 /* Book.h */,
-				413AC05B192CFD7800133B68 /* Book.m */,
 				41D409451902BE1200DE9A98 /* DuoKanApi.h */,
 				41D409461902BE1200DE9A98 /* DuoKanApi.m */,
 				41D4091C1902BD1000DE9A98 /* DuoKanAppDelegate.h */,
@@ -249,41 +288,19 @@
 				41D4096E190412AF00DE9A98 /* DuoKanDebugViewController.m */,
 				41D4095D1902C0C400DE9A98 /* DuoKanDelegate.h */,
 				41D4095E1902C0C400DE9A98 /* DuoKanDelegate.m */,
-				41D409221902BD1000DE9A98 /* DuoKanFirstViewController.h */,
-				41D409231902BD1000DE9A98 /* DuoKanFirstViewController.m */,
-				41D409701904180600DE9A98 /* DuoKanHistoryViewController.h */,
-				41D409711904180600DE9A98 /* DuoKanHistoryViewController.m */,
 				41D409631903B23900DE9A98 /* DuoKanLocalStorage.h */,
 				41D409641903B23900DE9A98 /* DuoKanLocalStorage.m */,
-				41139368191E76A300C4BCC1 /* DuoKanLoginButtonViewController.h */,
-				41139369191E76A300C4BCC1 /* DuoKanLoginButtonViewController.m */,
-				41D409601902C7FA00DE9A98 /* DuoKanLoginViewController.h */,
-				41D409611902C7FA00DE9A98 /* DuoKanLoginViewController.m */,
-				4113936B191E77D700C4BCC1 /* DuoKanLoginWebViewController.h */,
-				4113936C191E77D700C4BCC1 /* DuoKanLoginWebViewController.m */,
-				41139371191E87B700C4BCC1 /* DuoKanMenuTableViewController.h */,
-				41139372191E87B700C4BCC1 /* DuoKanMenuTableViewController.m */,
 				41D409581902C08500DE9A98 /* DuoKanMobileNotification.h */,
 				41D409591902C08500DE9A98 /* DuoKanMobileNotification.m */,
+				4113EC1C194217ED0083CD23 /* Book.h */,
+				4113EC1D194217ED0083CD23 /* Book.m */,
 				41D4097919080B8800DE9A98 /* DuokanModel.xcdatamodeld */,
-				41139374191E94D500C4BCC1 /* DuoKanNavigationController.h */,
-				41139375191E94D500C4BCC1 /* DuoKanNavigationController.m */,
-				413AC057192BAE1100133B68 /* DuoKanRecordTableViewCell.h */,
-				413AC058192BAE1100133B68 /* DuoKanRecordTableViewCell.m */,
-				4113936E191E873F00C4BCC1 /* DuoKanRevealViewController.h */,
-				4113936F191E873F00C4BCC1 /* DuoKanRevealViewController.m */,
 				41D409551902C07600DE9A98 /* DuoKanScheduler.h */,
 				41D409561902C07600DE9A98 /* DuoKanScheduler.m */,
-				41D409251902BD1000DE9A98 /* DuoKanSecondViewController.h */,
-				41D409261902BD1000DE9A98 /* DuoKanSecondViewController.m */,
 				41D409491902BE1200DE9A98 /* DuoKanSessionInfo.h */,
 				41D4094A1902BE1200DE9A98 /* DuoKanSessionInfo.m */,
-				41732FCE191FD1EA00CA6C92 /* DuoKanSettingsViewController.h */,
-				41732FCF191FD1EA00CA6C92 /* DuoKanSettingsViewController.m */,
 				41D4094B1902BE1200DE9A98 /* DuokanVariables.h */,
 				41D4094C1902BE1200DE9A98 /* DuoKanVariables.m */,
-				417319F1191BEA7E001E9160 /* DuoKanWebViewController.h */,
-				417319F2191BEA7E001E9160 /* DuoKanWebViewController.m */,
 				41D409281902BD1000DE9A98 /* Images.xcassets */,
 				41D4091F1902BD1000DE9A98 /* Main.storyboard */,
 				413AC05D192E41BF00133B68 /* NSDate+Utility.h */,
@@ -297,8 +314,6 @@
 				41139366191E74BC00C4BCC1 /* UIButtonWithBorder.m */,
 				417319EE191BE107001E9160 /* UIImage+Functions.h */,
 				417319EF191BE107001E9160 /* UIImage+Functions.m */,
-				4113EC121940CE5B0083CD23 /* DuoKanLogoutButtonViewController.h */,
-				4113EC131940CE5B0083CD23 /* DuoKanLogoutButtonViewController.m */,
 			);
 			path = DuokanLimitFreeMobile;
 			sourceTree = "<group>";
@@ -324,10 +339,11 @@
 		41D409351902BD1000DE9A98 /* DuokanLimitFreeMobileTests */ = {
 			isa = PBXGroup;
 			children = (
-				417319E9191A8E51001E9160 /* DuoKanCoreDataUtilTest.m */,
 				41D409511902BE5400DE9A98 /* DuoKanApiTest.m */,
-				41D409521902BE5400DE9A98 /* DuoKanSessionInfoTest.m */,
+				4113EC2019421B770083CD23 /* DuoKanApiTest2.m */,
+				417319E9191A8E51001E9160 /* DuoKanCoreDataUtilTest.m */,
 				41D4093B1902BD1000DE9A98 /* DuokanLimitFreeMobileTests.m */,
+				41D409521902BE5400DE9A98 /* DuoKanSessionInfoTest.m */,
 				41D4095B1902C09700DE9A98 /* DuoKanTestMobileNotification.m */,
 				41D409361902BD1000DE9A98 /* Supporting Files */,
 			);
@@ -504,6 +520,7 @@
 				41139373191E87B700C4BCC1 /* DuoKanMenuTableViewController.m in Sources */,
 				41D409621902C7FA00DE9A98 /* DuoKanLoginViewController.m in Sources */,
 				41732FD0191FD1EA00CA6C92 /* DuoKanSettingsViewController.m in Sources */,
+				4113EC1E194217ED0083CD23 /* Book.m in Sources */,
 				41D4096F190412AF00DE9A98 /* DuoKanDebugViewController.m in Sources */,
 				41D409271902BD1000DE9A98 /* DuoKanSecondViewController.m in Sources */,
 				41D4091E1902BD1000DE9A98 /* DuoKanAppDelegate.m in Sources */,
@@ -511,11 +528,11 @@
 				41D4091A1902BD1000DE9A98 /* main.m in Sources */,
 				41D409571902C07600DE9A98 /* DuoKanScheduler.m in Sources */,
 				417319F0191BE107001E9160 /* UIImage+Functions.m in Sources */,
-				413AC05C192CFD7800133B68 /* Book.m in Sources */,
 				413AC05F192E41BF00133B68 /* NSDate+Utility.m in Sources */,
 				41D4098419081A1900DE9A98 /* DuoKanCoreDataUtil.m in Sources */,
 				417319F3191BEA7E001E9160 /* DuoKanWebViewController.m in Sources */,
 				41D4096C190403C600DE9A98 /* KeychainItemWrapper.m in Sources */,
+				4113EC1819420B410083CD23 /* DuoKanBookShelfViewController.m in Sources */,
 				41D409241902BD1000DE9A98 /* DuoKanFirstViewController.m in Sources */,
 				41D4094F1902BE1200DE9A98 /* DuoKanSessionInfo.m in Sources */,
 				41D409751905620B00DE9A98 /* DuoKanDebug.m in Sources */,
@@ -545,6 +562,7 @@
 				41D4095C1902C09700DE9A98 /* DuoKanTestMobileNotification.m in Sources */,
 				417319EA191A8E51001E9160 /* DuoKanCoreDataUtilTest.m in Sources */,
 				41D4093C1902BD1000DE9A98 /* DuokanLimitFreeMobileTests.m in Sources */,
+				4113EC2119421B770083CD23 /* DuoKanApiTest2.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

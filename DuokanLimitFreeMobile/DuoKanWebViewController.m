@@ -33,6 +33,7 @@
     UIActionSheet *popup = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:
                             @"Safari",
                             @"多看阅读",
+                            @"拉入黑名单",
                             nil];
     popup.tag = 1;
     [popup showInView:[UIApplication sharedApplication].keyWindow];
@@ -48,6 +49,11 @@
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:record.book.duokanAppURL]];
 }
 
+- (void)hideBook {
+    DuoKanApi* api = [[DuoKanApi alloc] init];
+    [api hide:record.book inSession:[DuoKanSessionInfo getSessionFromCookie] withDelegate:self userInfo:nil];
+}
+
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     switch (actionSheet.tag) {
         case 1: {
@@ -57,6 +63,9 @@
                     break;
                 case 1:
                     [self openWithDuokanApp];
+                    break;
+                case 2:
+                    [self hideBook];
                     break;
                 default:
                     break;

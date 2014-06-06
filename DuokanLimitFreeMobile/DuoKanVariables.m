@@ -21,5 +21,5 @@
  NSString* const duokanRevealURL = @"http://www.duokan.com/store/v0/payment/book/reveal";
  NSString* const duokanLogoutURL = @"http://www.duokan.com/dk_id/api/account/logged/null";
  NSString* const xiaomiLogoutURL = @"https://account.xiaomi.com/pass/logout";
-
+ NSString* const duokanBookInfoURL = @"http://www.duokan.com/store/v0/web/book/id_list";
 

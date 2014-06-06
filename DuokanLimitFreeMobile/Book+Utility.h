@@ -16,5 +16,6 @@
 - (NSString*) thumbCover;
 - (NSString*) duokanAppURL;
 - (BOOL) isDuokanAppInstalled;
+- (void) importJSON: (NSDictionary*) json;
 
 @end

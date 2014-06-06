@@ -40,7 +40,7 @@
     self.tableView.backgroundColor = [UIColor colorWithWhite:0.2f alpha:1.0f];
     self.tableView.separatorColor = [UIColor colorWithWhite:0.15f alpha:0.2f];
     
-    _menuItems = @[@"title", @"history", @"settings", @"logout"];
+    _menuItems = @[@"title", @"history", @"book", @"hide", @"settings", @"logout"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -115,12 +115,6 @@
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     UINavigationController *destViewController = (UINavigationController*)segue.destinationViewController;
     destViewController.title = [[_menuItems objectAtIndex:indexPath.row] capitalizedString];
-    
-//    // Set the photo if it navigates to the PhotoView
-//    if ([segue.identifier isEqualToString:@"history"]) {
-//        DuoKanHistoryViewController* historyController = (DuoKanHistoryViewController*)segue.destinationViewController;
-//    }
-    NSString* menu = [_menuItems objectAtIndex:indexPath.row];
     
     if ( [segue isKindOfClass: [SWRevealViewControllerSegue class]] ) {
         SWRevealViewControllerSegue *swSegue = (SWRevealViewControllerSegue*) segue;

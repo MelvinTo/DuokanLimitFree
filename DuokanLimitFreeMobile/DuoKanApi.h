@@ -45,10 +45,13 @@
     id<DuokanDatabaseAPI> _dbAPI;
 }
 
++ (DuoKanApi*) api: (id<DuoKanApiDelegate>) delegate withDatabase: (id<DuokanDatabaseAPI>) database;
+
 - (void) login: (NSString*) username withPassword: (NSString*) password withDelegate: (id <DuoKanApiDelegate>) delegate;
 - (void) getMainPageWithDelegate: (id <DuoKanApiDelegate> ) delegate;
 - (NSString*) getFreeBookURL: (NSData*) htmlData;
 - (Book*) getBookInfo: (NSString*) url withDelegate: (id<DuoKanApiDelegate>) delegate;
+- (void) getBook: (NSString*) bookID;
 - (Book*) parseBookHTML: (NSString*) htmlString;
 - (void) isOrdered: (Book*) book inSession: (DuoKanSessionInfo*) session withDelegate: (id<DuoKanApiDelegate>) delegate;
 - (void) order: (Book*) book inSession: (DuoKanSessionInfo*) session withDelegate: (id<DuoKanApiDelegate>) delegate;
@@ -58,5 +61,7 @@
 - (NSNumber*) getRating: (NSString*) htmlString;
 - (void) setDatabaseAPI: (id<DuokanDatabaseAPI>) api;
 - (void) logout:(id<DuoKanApiDelegate>) delegate;
+
+@property (atomic, strong) id<DuoKanApiDelegate> delegate;
 
 @end
